@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KAEL THE WINDRUNNER — Daily Comics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="kael-style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <div class="wind-icon">💨</div>
+        <div>
+          <h1 class="site-title">KAEL THE WINDRUNNER</h1>
+          <p class="site-sub">His Story Begins Today — A New Chapter Every Day</p>
+        </div>
+      </div>
+      <div class="header-btns">
+        <button class="char-btn" onclick="toggleCharCard()">Meet Kael ✦</button>
+        <a href="index.html" class="universe-btn">☀ Meet Zara</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CHARACTER CARD -->
+  <div class="char-card" id="charCard">
+    <div class="char-card-inner">
+      <img class="char-portrait" src="https://image.pollinations.ai/prompt/anime%20illustration%2C%20young%20boy%20superhero%2C%20wild%20windswept%20dark%20curly%20hair%2C%20bright%20sky%20blue%20hoodie%20with%20silver%20wind%20swirl%20emblem%20on%20chest%2C%20silver%20glowing%20eyes%2C%20wind%20and%20clouds%20swirling%20around%20him%2C%20playful%20grin%2C%20energetic%20jumping%20pose%2C%20vibrant%20comic%20book%20style%2C%20no%20text?width=300&height=400&seed=888&nologo=true&model=flux" alt="Kael the Windrunner" loading="lazy" />
+      <div class="char-info">
+        <h2 class="char-name">💨 KAEL THE WINDRUNNER 💨</h2>
+        <p class="char-tagline">"Where the wind goes, so does hope!"</p>
+        <div class="origin-badge">⭐ READ THE ORIGIN STORY — Starting from Episode 1 ⭐</div>
+        <ul class="char-traits">
+          <li>🌀 <strong>Wind Mastery</strong> — Controls air currents, gusts, and breezes</li>
+          <li>⚡ <strong>Storm Riding</strong> — Flies by surfing on wind streams at incredible speed</li>
+          <li>🛡 <strong>Air Shield</strong> — Creates walls and domes of compressed air</li>
+          <li>🌧 <strong>Rain Caller</strong> — Guides clouds to bring water to dry lands</li>
+          <li>😄 <strong>Playful Heart</strong> — Jokes even in danger, but never leaves anyone behind</li>
+        </ul>
+        <p class="char-origin">Born during the most powerful storm in a century, baby Kael let out a cry — and the hurricane stopped. Nobody knew why. Ten years later, Kael himself is about to find out.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORIGIN STORY BANNER -->
+  <div class="origin-banner" id="originBanner">
+    <div class="origin-banner-inner">
+      <span class="origin-icon">📖</span>
+      <div>
+        <strong>ORIGIN STORY IN PROGRESS</strong>
+        <span id="originProgress">Follow Kael from the very beginning — his story is just getting started!</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN COMIC AREA -->
+  <main>
+    <div class="date-nav">
+      <button class="nav-btn" id="prevBtn" onclick="changeDay(-1)">◀ PREV</button>
+      <div class="date-display">
+        <div class="episode-label">EPISODE</div>
+        <div class="episode-num" id="episodeNum">—</div>
+        <div class="date-label" id="dateLabel">Loading…</div>
+      </div>
+      <button class="nav-btn" id="nextBtn" onclick="changeDay(1)">NEXT ▶</button>
+    </div>
+
+    <!-- ORIGIN TAG (shows only during origin episodes) -->
+    <div class="origin-tag" id="originTag" style="display:none">
+      📖 ORIGIN STORY
+    </div>
+
+    <div class="comic-title-wrap">
+      <h2 class="comic-title" id="comicTitle">Loading today's chapter…</h2>
+      <p class="comic-setting" id="comicSetting"></p>
+    </div>
+
+    <div class="panels-grid" id="panelsGrid">
+      <!-- panels injected by JS -->
+    </div>
+
+    <div class="sharing-bar">
+      <span>Share today's comic:</span>
+      <button onclick="copyLink()" class="share-btn">🔗 Copy Link</button>
+      <button onclick="shareTwitter()" class="share-btn">🐦 Twitter</button>
+      <a href="index.html" class="share-btn universe-link">☀ Also read Zara!</a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>KAEL THE WINDRUNNER — Daily Comics &nbsp;|&nbsp; Part of the <strong>Sunhaven Universe</strong> &nbsp;|&nbsp; Powered by <a href="https://pollinations.ai" target="_blank">Pollinations AI</a> (free) &nbsp;|&nbsp; Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a> (free)</p>
+    <p style="margin-top:6px;opacity:.6;font-size:.8rem">A new chapter every day. Zero cost. All heart. 💨</p>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="kael-script.js"></script>
+</body>
+</html>
