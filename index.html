@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZARA THE SUNBEAM — Daily Comics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <div class="sun-icon">☀</div>
+        <div>
+          <h1 class="site-title">ZARA THE SUNBEAM</h1>
+          <p class="site-sub">A New Adventure Every Day — 100% Free, 100% Fun</p>
+        </div>
+      </div>
+      <button class="char-btn" onclick="toggleCharCard()">Meet Zara ✦</button>
+    </div>
+  </header>
+
+  <!-- CHARACTER CARD -->
+  <div class="char-card" id="charCard">
+    <div class="char-card-inner">
+      <img class="char-portrait" src="https://image.pollinations.ai/prompt/anime%20illustration%2C%20young%20girl%20superhero%2C%20long%20glowing%20golden%20hair%20with%20tiny%20stars%2C%20bright%20purple%20and%20gold%20costume%20with%20sun%20emblem%20on%20chest%2C%20warm%20golden%20aura%2C%20friendly%20big%20smile%2C%20arms%20wide%20open%2C%20sky%20background%2C%20vibrant%20comic%20book%20style%2C%20no%20text?width=300&height=400&seed=777&nologo=true&model=flux" alt="Zara the Sunbeam" loading="lazy" />
+      <div class="char-info">
+        <h2 class="char-name">⚡ ZARA THE SUNBEAM ⚡</h2>
+        <p class="char-tagline">"When the sun shines, hope returns!"</p>
+        <ul class="char-traits">
+          <li>🌟 <strong>Kind-hearted</strong> — She sees good in everyone</li>
+          <li>💛 <strong>Warmth Healer</strong> — Her golden light heals wounds and sadness</li>
+          <li>🌈 <strong>Force Shield</strong> — Creates bubbles of sunlight to protect others</li>
+          <li>☀ <strong>Solar Flight</strong> — Flies by riding beams of sunlight</li>
+          <li>🦁 <strong>Never Gives Up</strong> — No problem is too big when you believe</li>
+        </ul>
+        <p class="char-origin">Born during a rare golden eclipse, Zara absorbed the sun's purest energy. Now she travels the world, one adventure at a time, spreading light wherever darkness dares to appear.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN COMIC AREA -->
+  <main>
+    <div class="date-nav">
+      <button class="nav-btn" id="prevBtn" onclick="changeDay(-1)">◀ PREV</button>
+      <div class="date-display">
+        <div class="episode-label">EPISODE</div>
+        <div class="episode-num" id="episodeNum">—</div>
+        <div class="date-label" id="dateLabel">Loading…</div>
+      </div>
+      <button class="nav-btn" id="nextBtn" onclick="changeDay(1)">NEXT ▶</button>
+    </div>
+
+    <div class="comic-title-wrap">
+      <h2 class="comic-title" id="comicTitle">Loading today's adventure…</h2>
+      <p class="comic-setting" id="comicSetting"></p>
+    </div>
+
+    <div class="panels-grid" id="panelsGrid">
+      <!-- panels injected by JS -->
+    </div>
+
+    <div class="sharing-bar">
+      <span>Share today's comic:</span>
+      <button onclick="copyLink()" class="share-btn">🔗 Copy Link</button>
+      <button onclick="shareTwitter()" class="share-btn">🐦 Twitter</button>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>ZARA THE SUNBEAM — Daily Comics &nbsp;|&nbsp; Powered by <a href="https://pollinations.ai" target="_blank">Pollinations AI</a> (free) &nbsp;|&nbsp; Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a> (free)</p>
+    <p style="margin-top:6px;opacity:.6;font-size:.8rem">New comic every day. Zero cost. All heart. ☀</p>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
