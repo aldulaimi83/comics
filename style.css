@@ -343,6 +343,7 @@ main {
   gap: 10px;
   background: linear-gradient(135deg, #e8e0ff 0%, #fff9e6 100%);
   transition: opacity .4s;
+  z-index: 1;
 }
 
 .panel-loader.hidden { opacity: 0; pointer-events: none; }

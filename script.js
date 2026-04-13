@@ -213,6 +213,7 @@ function renderComic(dayNum) {
 
     const el = document.createElement('div');
     el.className = 'panel';
+    // Build HTML without src — attach handlers first, then set src to avoid race condition
     el.innerHTML = `
       <div class="panel-num">${i + 1}</div>
       <div class="panel-img-wrap">
@@ -223,9 +224,7 @@ function renderComic(dayNum) {
         <img
           class="panel-img loading"
           id="img-${i}"
-          src="${imgUrl}"
           alt="Panel ${i + 1}: ${panel.caption}"
-          loading="lazy"
         />
         <div class="speech-bubble ${panel.isZara ? 'zara' : ''}">
           <span class="bubble-speaker">${panel.speaker}</span>
@@ -237,23 +236,29 @@ function renderComic(dayNum) {
 
     grid.appendChild(el);
 
-    // Handle image load
     const img = el.querySelector(`#img-${i}`);
     const loader = el.querySelector(`#loader-${i}`);
 
-    img.onload = () => {
+    function revealImage() {
       img.classList.remove('loading');
       img.classList.add('loaded');
       loader.classList.add('hidden');
-    };
+    }
+
+    img.onload = revealImage;
 
     img.onerror = () => {
+      img.style.display = 'none';
       loader.innerHTML = `<div style="text-align:center;padding:20px;font-size:.85rem;color:#666;">
         <div style="font-size:2rem;margin-bottom:8px">🎨</div>
         <div><em>${panel.caption}</em></div>
         <div style="margin-top:8px;font-size:.75rem;color:#aaa">Image generating…<br>Refresh to retry</div>
       </div>`;
+      loader.classList.remove('hidden');
     };
+
+    // Set src after handlers are attached — prevents cached-image race condition
+    img.src = imgUrl;
   });
 
   // Update URL without reload
@@ -288,9 +293,23 @@ function toggleCharCard() {
 // ===== SHARING =====
 
 function copyLink() {
-  navigator.clipboard.writeText(window.location.href).then(() => {
-    showToast('Link copied! ☀');
-  });
+  const url = window.location.href;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(() => showToast('Link copied! ☀')).catch(() => fallbackCopy(url));
+  } else {
+    fallbackCopy(url);
+  }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.cssText = 'position:fixed;opacity:0';
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand('copy');
+  document.body.removeChild(ta);
+  showToast('Link copied! ☀');
 }
 
 function shareTwitter() {
