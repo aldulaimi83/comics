@@ -366,13 +366,10 @@ function renderComic(dayNum) {
 
     img.onload = () => { img.classList.replace('loading', 'loaded'); loader.classList.add('hidden'); };
     img.onerror = () => {
-      img.style.display = 'none';
-      loader.innerHTML = `<div style="text-align:center;padding:20px;color:#888;">
-        <div style="font-size:2rem">🎨</div>
-        <em style="font-size:.85rem">${caption}</em>
-        <div style="font-size:.75rem;margin-top:8px;color:#aaa">${currentLang === 'ar' ? 'جارٍ رسم الصورة… أعد التحميل' : 'Generating… refresh to retry'}</div>
-      </div>`;
-      loader.classList.remove('hidden');
+      img.onerror = null;
+      img.src = 'assets/panel-fallback.svg';
+      img.classList.replace('loading', 'loaded');
+      loader.classList.add('hidden');
     };
     setTimeout(() => { img.src = imgUrl; }, i * 600);
   });

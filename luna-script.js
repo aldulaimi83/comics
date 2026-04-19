@@ -280,9 +280,10 @@ function renderComic(dayNum) {
     const loader = el.querySelector(`#loader-${i}`);
     img.onload = () => { img.classList.replace('loading', 'loaded'); loader.classList.add('hidden'); };
     img.onerror = () => {
-      img.style.display = 'none';
-      loader.innerHTML = `<div style="text-align:center;padding:20px;color:#888;"><div style="font-size:2rem">🎨</div><em style="font-size:.85rem">${caption}</em></div>`;
-      loader.classList.remove('hidden');
+      img.onerror = null;
+      img.src = 'assets/panel-fallback.svg';
+      img.classList.replace('loading', 'loaded');
+      loader.classList.add('hidden');
     };
     setTimeout(() => { img.src = imgUrl; }, i * 600);
   });
