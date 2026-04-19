@@ -216,7 +216,7 @@ function renderComic(dayNum) {
     grid.appendChild(el);
     const img = el.querySelector(`#nimg-${i}`), loader = el.querySelector(`#nloader-${i}`);
     img.onload = () => { img.classList.remove('loading'); img.classList.add('loaded'); loader.classList.add('hidden'); };
-    img.onerror = () => { img.onerror = null; img.src = 'assets/panel-fallback.svg'; img.classList.remove('loading'); img.classList.add('loaded'); loader.classList.add('hidden'); };
+    img.onerror = () => { img.style.display = 'none'; loader.innerHTML = `<div style="text-align:center;padding:20px;font-size:.85rem;color:#0f4c48;font-family:Cairo,sans-serif;"><div style="font-size:2rem;margin-bottom:8px">🌅</div><div><em>${panel.caption}</em></div><div style="margin-top:8px;font-size:.75rem;color:#aaa">جار توليد الصورة…<br>حدّث الصفحة للمحاولة مجدداً</div></div>`; loader.classList.remove('hidden'); };
     setTimeout(() => { img.src = buildImageUrl(panel, i, dayNum); }, i * 500);
   });
   const url = new URL(window.location);

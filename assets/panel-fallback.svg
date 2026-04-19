@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Comic panel fallback">
-  <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#111827"/><stop offset="1" stop-color="#f59e0b"/></linearGradient></defs>
-  <rect width="400" height="300" rx="24" fill="url(#g)"/>
-  <rect x="34" y="34" width="332" height="232" rx="18" fill="rgba(255,255,255,.1)" stroke="#fff" stroke-width="4" stroke-dasharray="12 10"/>
-  <circle cx="200" cy="112" r="42" fill="#fcd34d"/>
-  <path d="M128 205c28-60 116-60 144 0" fill="none" stroke="#fff" stroke-width="20" stroke-linecap="round"/>
-  <path d="M112 86h176M92 232h216" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity=".8"/>
-  <text x="200" y="272" text-anchor="middle" font-family="Impact, sans-serif" font-size="26" fill="#fff">COMIC PANEL</text>
-</svg>
