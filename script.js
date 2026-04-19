@@ -1,346 +1,411 @@
 // ===== ZARA THE SUNBEAM — Daily Comic Generator =====
-// Free forever: Pollinations.ai (image gen) + GitHub Pages (hosting)
 
-const ZARA_BASE_PROMPT = "anime comic book illustration, young girl superhero named Zara, long glowing golden hair with tiny sparkling stars, bright purple and gold costume with shining sun emblem on chest, warm golden glow aura around her, big friendly smile";
+let currentLang = 'en';
+
+const ZARA_BASE_PROMPT = "anime comic book illustration, young girl superhero named Zara, long glowing golden hair with tiny sparkling stars, bright purple and gold costume with shining sun emblem on chest, warm golden glow aura, big friendly smile";
 
 const ADVENTURES = [
+
+  // ── Story 1: HONESTY ──────────────────────────────────────────────────────
   {
-    title: "THE KITTEN IN THE SKY",
-    setting: "Sunhaven Village — a warm sunny afternoon",
+    title: { en: "THE HONEST MISTAKE", ar: "الخطأ الصادق" },
+    setting: { en: "Sunhaven Market — a busy Saturday morning", ar: "سوق صنهيفن — صباح السبت المزدحم" },
+    story: {
+      en: "Omar is playing near the market when his ball accidentally smashes a shop window. His first instinct is to run — nobody saw him. But Zara was watching. One honest choice changes everything.",
+      ar: "يلعب عمر بالقرب من السوق عندما تُحطّم كرته زجاج محل بالخطأ. أول شيء يفكر فيه: أن يهرب. لم يره أحد! لكن زارا كانت ترقبه. اختيار صادق واحد يغيّر كل شيء."
+    },
     panels: [
-      { caption: "In the peaceful village of Sunhaven, a tiny cry breaks the silence…", speech: "Help! My kitten Mochi is stuck way up there!", speaker: "Lily", isZara: false, scene: "small girl with pigtails looking up at tall oak tree, worried expression, golden afternoon light, comic book style" },
-      { caption: "Zara hears the call from three blocks away!", speech: "I'm on my way, Lily! No one gets left behind!", speaker: "Zara", isZara: true, scene: "girl superhero flying upward through blue sky, golden hair streaming, determined heroic expression, warm sunlight, comic book art" },
-      { caption: "With gentle sunlight hands, Zara calms the frightened kitten…", speech: "Shh… you're safe now, little one. ☀", speaker: "Zara", isZara: true, scene: "girl superhero floating in midair cradling small white kitten, soft golden glow, peaceful gentle expression, tree branches around, comic art style" },
-      { caption: "Back on the ground — a reunion full of joy!", speech: "MOCHI! Thank you, Zara! You're the best ever!", speaker: "Lily", isZara: false, scene: "happy little girl hugging white kitten, smiling superhero girl beside them, golden sunset background, heartwarming comic book scene" }
+      {
+        caption: { en: "Omar's ball flies — CRASH! The shop window shatters.", ar: "تطير كرة عمر — طقطق! ينكسر زجاج المحل." },
+        speech: { en: "Oh no… did anyone see? I'll just… walk away.", ar: "لا! هل رآني أحد؟ سأمشي ببساطة…" },
+        speaker: "Omar", isHero: false,
+        scene: "young boy in busy market, his ball just broke a shop window, looking around nervously to see if anyone noticed, comic book style"
+      },
+      {
+        caption: { en: "Zara lands quietly beside him.", ar: "تهبط زارا بهدوء بجانبه." },
+        speech: { en: "I saw what happened. You didn't mean to break it — but you still need to tell him.", ar: "رأيت ما حدث. لم تقصد كسره — لكنك لا تزال بحاجة لإخباره." },
+        speaker: "Zara", isHero: true,
+        scene: "girl superhero with golden hair kneeling beside nervous young boy in market, gentle serious expression, soft golden light"
+      },
+      {
+        caption: { en: "Omar swallows hard and turns to face the shop owner.", ar: "يبتلع عمر ريقه ويواجه صاحب المحل." },
+        speech: { en: "Sir… I broke your window. I'm sorry. I want to help fix it.", ar: "سيدي… أنا كسرت الزجاجة. آسف. وأريد المساعدة في إصلاحها." },
+        speaker: "Omar", isHero: false,
+        scene: "young boy looking up at shop owner with honest worried expression, girl superhero standing supportively beside him, warm market setting"
+      },
+      {
+        caption: { en: "The shop owner smiles. He's heard a hundred excuses — but never the truth.", ar: "يبتسم صاحب المحل. سمع مئة عذر — لكن أبداً لم يسمع الحقيقة." },
+        speech: { en: "You're braver than most grown-ups, young man. Thank you for being honest.", ar: "أنت أشجع من كثير من البالغين يا بني. شكراً لك على صدقك." },
+        speaker: "Shop Owner", isHero: false,
+        scene: "kind old shop owner smiling warmly at brave young boy, girl superhero watching proudly in background, golden afternoon market light"
+      }
     ]
   },
+
+  // ── Story 2: PATIENCE ─────────────────────────────────────────────────────
   {
-    title: "FLOOD AT RAINBOW BRIDGE",
-    setting: "Rainbow Bridge — during a fierce storm",
+    title: { en: "THE WAITING SEED", ar: "البذرة الصابرة" },
+    setting: { en: "Sunhaven Garden — a slow spring morning", ar: "حديقة صنهيفن — صباح الربيع الهادئ" },
+    story: {
+      en: "Little Maya planted a seed three weeks ago and checks it every day. Today she's so frustrated she wants to dig it up. Zara helps her understand: the best things in life take time.",
+      ar: "زرعت مايا الصغيرة بذرة منذ ثلاثة أسابيع وتتفقدها كل يوم. اليوم تشعر بالإحباط وتريد خلعها. تساعدها زارا على فهم شيء مهم: أجمل الأشياء تحتاج وقتاً."
+    },
     panels: [
-      { caption: "A sudden storm breaks the old river dam. Waters rise fast!", speech: "The bridge! Families are stranded — someone help!", speaker: "Villager", isZara: false, scene: "stormy river flooding a bridge, panicked townspeople, dark rain clouds, dramatic comic book panel" },
-      { caption: "A golden streak pierces the storm clouds!", speech: "I see them! Hold on, everyone — sunlight is here!", speaker: "Zara", isZara: true, scene: "girl superhero diving through storm clouds, golden light cutting through dark rain, heroic silhouette, manga action style" },
-      { caption: "Zara raises a warm force shield, holding back the flood!", speech: "My shield will hold until you all cross safely!", speaker: "Zara", isZara: true, scene: "girl superhero arms stretched wide, large golden dome shield holding back raging floodwater, families running across bridge to safety, epic comic art" },
-      { caption: "The storm passes. The village is safe — thanks to one brave heart.", speech: "She saved every single one of us…", speaker: "Elder", isZara: false, scene: "sunny aftermath of storm, smiling townspeople hugging, superhero girl waving goodbye flying upward, rainbow in background, hopeful comic art" }
+      {
+        caption: { en: "Maya kneels beside her pot. Still nothing. Three whole weeks!", ar: "تركع مايا بجانب أصيصها. لا شيء حتى الآن. ثلاثة أسابيع كاملة!" },
+        speech: { en: "That's IT! It's NEVER going to grow! I'm digging it up!", ar: "كفى! لن تنمو أبداً! سأخلعها!" },
+        speaker: "Maya", isHero: false,
+        scene: "frustrated little girl kneeling over small plant pot in garden, arms crossed, upset expression, empty soil in pot, sunny garden background"
+      },
+      {
+        caption: { en: "Zara floats down, golden light catching in the leaves.", ar: "تهبط زارا وضوؤها الذهبي يلمع في الأوراق." },
+        speech: { en: "May I show you something first?", ar: "هل تسمحين لي بإريتك شيئاً أولاً؟" },
+        speaker: "Zara", isHero: true,
+        scene: "girl superhero with golden glow floating down to garden beside young girl, mysterious gentle smile, dappled sunlight"
+      },
+      {
+        caption: { en: "Zara uses her sun-vision to see beneath the soil.", ar: "تستخدم زارا رؤيتها الشمسية لترى تحت التراب." },
+        speech: { en: "Look — it's growing underground right now! Your seed is working so hard where you can't see it yet.", ar: "انظري — إنها تنمو تحت التراب الآن! بذرتك تعمل بجد حيث لا تستطيعين رؤيتها بعد." },
+        speaker: "Zara", isHero: true,
+        scene: "girl superhero with glowing eyes showing little girl an x-ray vision view underground showing tiny seedling roots growing, magical illustration"
+      },
+      {
+        caption: { en: "Maya decides to wait. One week later…", ar: "تقرر مايا الانتظار. بعد أسبوع واحد…" },
+        speech: { en: "ZARA! IT GREW! I'm SO glad I didn't give up!", ar: "زارا! نمت! سعيدة جداً أنني لم أستسلم!" },
+        speaker: "Maya", isHero: false,
+        scene: "delighted little girl holding small plant pot with a beautiful green sprout emerging, huge smile, sunny garden, girl superhero clapping happily in background"
+      }
     ]
   },
+
+  // ── Story 3: KINDNESS ─────────────────────────────────────────────────────
   {
-    title: "THE LONELY LIGHTHOUSE",
-    setting: "The Foggy Cliffs — a cold misty morning",
+    title: { en: "THE NEW KID", ar: "الطفل الجديد" },
+    setting: { en: "Sunhaven School — first day of autumn term", ar: "مدرسة صنهيفن — أول يوم من الفصل الخريفي" },
+    story: {
+      en: "Sam just moved to Sunhaven. At lunch, he sits alone at the end of a long table. Everyone has their own group. Everyone except Zara, who notices the one thing others miss — an empty seat and a sad face.",
+      ar: "انتقل سام للتو إلى صنهيفن. في وقت الغداء يجلس وحيداً في نهاية الطاولة الطويلة. كل شخص لديه مجموعته. كل شخص إلا زارا، التي لاحظت ما لم يلاحظه الآخرون."
+    },
     panels: [
-      { caption: "Old keeper Marco tends his lighthouse alone. No ships in months.", speech: "No one needs this lighthouse anymore… maybe no one needs me.", speaker: "Marco", isZara: false, scene: "elderly man alone in old lighthouse, foggy sea outside, sad expression, warm interior light, comic book style" },
-      { caption: "Zara was passing when she spotted the fading light.", speech: "That lighthouse is losing power — and I sense something else too…", speaker: "Zara", isZara: true, scene: "girl superhero pausing mid-flight over misty cliffs, looking toward lighthouse with concerned expression, fog rolling in, comic art" },
-      { caption: "Zara shares her solar warmth — not just with the lamp.", speech: "You light the way for others, Marco. That never stops mattering.", speaker: "Zara", isZara: true, scene: "girl superhero sitting beside elderly lighthouse keeper, glowing hands illuminating the room, both smiling warmly, cozy interior, heartfelt comic panel" },
-      { caption: "The lighthouse shines bright as ever. Marco smiles for the first time in years.", speech: "Ha! Brighter than ever! Thank you, young sunbeam!", speaker: "Marco", isZara: false, scene: "old lighthouse blazing with golden light cutting through fog, ships in the distance turning toward it, elderly man waving happily from tower, beautiful comic art" }
+      {
+        caption: { en: "Lunchtime. Sam sits alone at the far end, staring at his food.", ar: "وقت الغداء. يجلس سام وحيداً في الطرف البعيد، محدقاً في طعامه." },
+        speech: { en: "I knew this school would be the same as the last one…", ar: "علمت أن هذه المدرسة ستكون مثل المدرسة السابقة…" },
+        speaker: "Sam", isHero: false,
+        scene: "lonely boy sitting alone at end of school cafeteria table, other kids in happy groups in background, sad expression, comic book art"
+      },
+      {
+        caption: { en: "Zara spots Sam from across the cafeteria.", ar: "ترى زارا سام من الجانب الآخر من المقصف." },
+        speech: { en: "There's a boy who looks like he could really use a friend today.", ar: "هناك ولد يبدو أنه يحتاج صديقاً اليوم." },
+        speaker: "Zara", isHero: true,
+        scene: "girl with golden hair in school cafeteria noticing lonely boy across the room, warm determined expression"
+      },
+      {
+        caption: { en: "Zara walks over and brings her whole group with her.", ar: "تمشي زارا نحوه وتجلب معها مجموعتها بأكملها." },
+        speech: { en: "Hi! I'm Zara. We're making room — what's your name?", ar: "أهلاً! أنا زارا. نحن نوسع المكان — ما اسمك؟" },
+        speaker: "Zara", isHero: true,
+        scene: "girl with golden hair sitting beside lonely boy at cafeteria table, group of cheerful kids joining them, boy looking surprised and slowly smiling"
+      },
+      {
+        caption: { en: "By the time lunch is over, Sam has four new friends.", ar: "بحلول نهاية الغداء، أصبح لسام أربعة أصدقاء جدد." },
+        speech: { en: "You know what? This might actually be a good school.", ar: "تعلمون؟ قد تكون هذه مدرسة جيدة في الواقع." },
+        speaker: "Sam", isHero: false,
+        scene: "group of kids laughing together at cafeteria table, previously lonely boy now smiling and chatting, girl with golden hair beaming happily"
+      }
     ]
   },
+
+  // ── Story 4: GRATITUDE ────────────────────────────────────────────────────
   {
-    title: "FIRE IN THE FOREST",
-    setting: "Emerald Forest — an emergency at dawn",
+    title: { en: "THE INVISIBLE GARDENER", ar: "البستاني الخفي" },
+    setting: { en: "Sunhaven Central Park — a warm Tuesday", ar: "الحديقة المركزية في صنهيفن — يوم ثلاثاء دافئ" },
+    story: {
+      en: "Old Hassan tends Sunhaven's park every single day — raking, watering, fixing. But no one ever notices him. They enjoy the park but never say thank you. Zara decides to change that.",
+      ar: "يعتني الشيخ حسان بحديقة صنهيفن كل يوم — يكنس ويسقي ويصلح. لكن لا أحد يلاحظه. يستمتعون بالحديقة دون أن يشكروه. تقرر زارا تغيير ذلك."
+    },
     panels: [
-      { caption: "A wildfire sweeps through Emerald Forest before sunrise…", speech: "My family — the animals! They can't escape the flames!", speaker: "Ranger", isZara: false, scene: "forest fire spreading at dawn, worried park ranger, animals fleeing, dramatic orange flames, urgent comic panel" },
-      { caption: "Zara arrives in moments, her aura blazing against the blaze.", speech: "I'll create a firebreak with my shield wall — guide the animals through!", speaker: "Zara", isZara: true, scene: "girl superhero facing wildfire, massive golden energy wall forming between her and the flames, determined expression, epic comic art" },
-      { caption: "One by one, every creature passes to safety through Zara's golden corridor.", speech: "Come on — deer, foxes, rabbits — everyone through! You're safe!", speaker: "Zara", isZara: true, scene: "girl superhero surrounded by deer rabbits foxes birds all walking through glowing golden pathway away from fire, beautiful protective scene, vibrant comic art" },
-      { caption: "Morning breaks over a forest saved. New life will grow here again.", speech: "Every single animal made it. You're remarkable, Zara.", speaker: "Ranger", isZara: false, scene: "sunrise over partially burned forest, animals resting safely, superhero girl and park ranger looking out at hopeful dawn, green shoots growing from ashes, touching comic panel" }
+      {
+        caption: { en: "Every morning, Hassan arrives before anyone else to care for the park.", ar: "كل صباح يصل حسان قبل أي شخص آخر ليعتني بالحديقة." },
+        speech: { en: "Another beautiful morning… I wonder if anyone even notices the flowers I planted.", ar: "صباح جميل آخر… أتساءل إن كان أحد يلاحظ الزهور التي زرعتها." },
+        speaker: "Hassan", isHero: false,
+        scene: "old kind man sweeping park path in early morning light, beautiful flowers and clean benches around him, looking a little lonely but continuing his work"
+      },
+      {
+        caption: { en: "Families play all around him — but no one looks his way.", ar: "العائلات تلعب حوله — لكن لا أحد ينظر نحوه." },
+        speech: { en: "What a lovely park! The kids had such a great time!", ar: "يا لها من حديقة جميلة! استمتع الأطفال كثيراً!" },
+        speaker: "Parent", isHero: false,
+        scene: "families playing in beautiful park, old groundskeeper working in background completely unnoticed, showing contrast between happy crowd and unseen worker"
+      },
+      {
+        caption: { en: "Zara gathers the families together.", ar: "تجمع زارا العائلات معاً." },
+        speech: { en: "See that man? This park you love — he makes it beautiful every single morning. Every flower. Every clean path. That's his work.", ar: "هل ترون ذلك الرجل؟ هذه الحديقة التي تحبونها — يجعلها جميلة كل صباح. كل زهرة. كل طريق نظيف. هذا عمله." },
+        speaker: "Zara", isHero: true,
+        scene: "girl superhero pointing to old groundskeeper while speaking to gathered families and children who look surprised and moved"
+      },
+      {
+        caption: { en: "The park fills with thank-yous. Hassan is overwhelmed.", ar: "تمتلئ الحديقة بالشكر. يغمر حسان بالعاطفة." },
+        speech: { en: "In forty years… no one ever said that to me. Thank you — all of you.", ar: "في أربعين عاماً… لم يقلها لي أحد. شكراً لكم — جميعاً." },
+        speaker: "Hassan", isHero: false,
+        scene: "old gardener surrounded by grateful families and children, some handing him flowers, tears of joy in his eyes, girl superhero watching warmly"
+      }
     ]
   },
+
+  // ── Story 5: COURAGE ──────────────────────────────────────────────────────
   {
-    title: "THE HOSPITAL VISIT",
-    setting: "Sunhaven Children's Hospital — a grey Tuesday",
+    title: { en: "THE BIG STAGE", ar: "المسرح الكبير" },
+    setting: { en: "Sunhaven School — show night", ar: "مدرسة صنهيفن — ليلة العرض" },
+    story: {
+      en: "Layla has a solo in the school show. She practiced for months. But standing backstage, her legs won't move. Zara whispers something that will stay with her forever.",
+      ar: "لدى ليلى دور منفرد في عرض المدرسة. تدربت لأشهر. لكنها تقف خلف الكواليس وساقاها لا تتحركان. تهمس زارا لها بشيء سيبقى معها إلى الأبد."
+    },
     panels: [
-      { caption: "Ward 7 is quiet today. Little Amir hasn't smiled in three weeks.", speech: "I don't feel like being brave today…", speaker: "Amir", isZara: false, scene: "young sick boy in hospital bed looking at window sadly, grey sky outside, medical equipment nearby, soft comic panel" },
-      { caption: "A warm golden glow fills the corridor outside Room 12…", speech: "I heard there's a kid here who could use some sunshine!", speaker: "Zara", isZara: true, scene: "girl superhero peeking around hospital door frame with big smile, golden light filling the hallway, nurses smiling in background, cheerful comic art" },
-      { caption: "Zara spends the whole afternoon — stories, laughter, and light.", speech: "And THEN the dragon tried to eat the homework — but I said NO!", speaker: "Zara", isZara: true, scene: "girl superhero sitting on edge of hospital bed storytelling with animated gestures, sick boy laughing with huge smile, golden warm light filling room, joyful comic scene" },
-      { caption: "When Zara leaves, the whole ward is filled with laughter.", speech: "I think I feel braver now. Will she come back?", speaker: "Amir", isZara: false, scene: "hospital ward full of laughing children in beds, golden sunlight streaming through windows, nurse wiping happy tear, hopeful warm comic art" }
+      {
+        caption: { en: "Backstage. The audience buzzes. Layla can't breathe.", ar: "خلف الكواليس. الجمهور يدوي. ليلى لا تستطيع التنفس." },
+        speech: { en: "I can't do it. I'll forget everything. Everyone will laugh at me.", ar: "لا أستطيع فعل ذلك. سأنسى كل شيء. سيضحك الجميع عليّ." },
+        speaker: "Layla", isHero: false,
+        scene: "terrified young girl backstage at school theater, audience visible through curtain, hands shaking, frozen with stage fright"
+      },
+      {
+        caption: { en: "Zara appears quietly at her side.", ar: "تظهر زارا بهدوء بجانبها." },
+        speech: { en: "I'm scared every single time I fly into danger. Every time. The feeling doesn't go away.", ar: "أشعر بالخوف في كل مرة أطير فيها نحو الخطر. كل مرة. الشعور لا يختفي." },
+        speaker: "Zara", isHero: true,
+        scene: "girl superhero with golden hair crouching beside scared girl backstage, speaking quietly and sincerely, warm glowing light, intimate moment"
+      },
+      {
+        caption: { en: "\"But you always go anyway?\" Layla whispers.", ar: "«لكنك تذهبين على أي حال؟» تهمس ليلى." },
+        speech: { en: "Always. Because being brave doesn't mean you're not scared. It means you go anyway.", ar: "دائماً. لأن الشجاعة لا تعني أنك لست خائفاً. تعني أنك تمضي على أي حال." },
+        speaker: "Zara", isHero: true,
+        scene: "girl superhero holding hand of young girl backstage, both sharing a brave moment, golden light glowing softly, curtain about to open"
+      },
+      {
+        caption: { en: "Layla walks onto the stage — and sings like the whole world is listening.", ar: "تمشي ليلى على المسرح — وتغني كأن العالم بأسره يصغي." },
+        speech: { en: "She's wonderful! How was she not scared?", ar: "إنها رائعة! كيف لم تكن خائفة؟" },
+        speaker: "Audience member", isHero: false,
+        scene: "young girl singing solo on bright stage, spotlight on her, audience applauding, expression of pride replacing fear, triumphant scene"
+      }
     ]
   },
+
+  // ── Story 6: GENEROSITY ───────────────────────────────────────────────────
   {
-    title: "LOST IN THE MOUNTAINS",
-    setting: "Snowpeak Mountains — a blizzard rolling in fast",
+    title: { en: "THE EMPTY LUNCH BOX", ar: "صندوق الغداء الفارغ" },
+    setting: { en: "Sunhaven School Cafeteria — Monday lunchtime", ar: "مقصف مدرسة صنهيفن — وقت غداء الاثنين" },
+    story: {
+      en: "Kareem has the best lunch in class. But his classmate Hana quietly opens an empty bag. Kareem notices — but sharing means giving up his favorite things. Zara helps him see what really matters.",
+      ar: "لدى كريم أفضل غداء في الصف. لكن زميلته هنا تفتح حقيبتها الفارغة بهدوء. يلاحظ كريم — لكن المشاركة تعني التنازل عن أشيائه المفضلة. تساعده زارا على رؤية ما يهم حقاً."
+    },
     panels: [
-      { caption: "Three hikers took a wrong turn. A blizzard is minutes away.", speech: "No signal. No shelter. We're not going to make it…", speaker: "Hiker", isZara: false, scene: "three hikers lost on snowy mountain trail, dark blizzard clouds approaching, fearful expressions, dramatic cold comic panel" },
-      { caption: "Zara spots the emergency beacon through the whiteout.", speech: "Three heat signatures, two hundred feet below — I'm going in!", speaker: "Zara", isZara: true, scene: "girl superhero flying through snowstorm, golden light cutting through white blizzard, focused determined face, dynamic action comic panel" },
-      { caption: "Zara wraps them in her warm shield and carries them down the mountain.", speech: "My golden shield will keep you warm all the way down. I promise.", speaker: "Zara", isZara: true, scene: "girl superhero flying carrying three people wrapped in glowing golden bubble shield, blizzard raging outside but warm inside, comic art" },
-      { caption: "Safe in the mountain lodge, hot cocoa and grateful hearts.", speech: "I've never felt so warm in a blizzard in my life! Thank you!", speaker: "Hiker", isZara: false, scene: "mountain rescue lodge interior, three rescued hikers with hot drinks and blankets, superhero girl smiling by fireplace, cozy warm comic scene" }
+      {
+        caption: { en: "Kareem opens his amazing lunch. Hana quietly closes her empty bag.", ar: "يفتح كريم غداءه الرائع. تُغلق هنا حقيبتها الفارغة بهدوء." },
+        speech: { en: "I'm not hungry anyway. It's fine.", ar: "لست جائعة على أي حال. لا بأس." },
+        speaker: "Hana", isHero: false,
+        scene: "school cafeteria, boy with amazing lunchbox, girl beside him quietly closing empty lunch bag, trying to hide that she has nothing"
+      },
+      {
+        caption: { en: "Kareem sees. His sandwich is his favorite. He hesitates.", ar: "يرى كريم. ساندويشه هو المفضل لديه. يتردد." },
+        speech: { en: "But… it's my favorite. Mom only makes it once a week…", ar: "لكن… إنه المفضل لديّ. أمي تعمله مرة في الأسبوع…" },
+        speaker: "Kareem", isHero: false,
+        scene: "boy looking at his lunch then glancing at classmate, inner conflict visible on his face"
+      },
+      {
+        caption: { en: "Zara leans in quietly.", ar: "تميل زارا بهدوء." },
+        speech: { en: "You'll have another sandwich next week. But Hana will remember today for the rest of her life.", ar: "ستأكل ساندويشاً آخر الأسبوع القادم. لكن هنا ستتذكر هذا اليوم طوال حياتها." },
+        speaker: "Zara", isHero: true,
+        scene: "girl superhero whispering gently to boy, warm golden aura, gentle knowing smile, cafeteria background"
+      },
+      {
+        caption: { en: "Kareem slides half his lunch across the table.", ar: "يدفع كريم نصف غدائه عبر الطاولة." },
+        speech: { en: "Hey — my mom always packs too much. Want to share?", ar: "مرحباً — أمي دائماً تحضّر أكثر من اللازم. تريدين المشاركة؟" },
+        speaker: "Kareem", isHero: false,
+        scene: "boy pushing half his lunch to surprised and grateful girl at cafeteria table, both beginning to smile, Zara watching happily in background"
+      }
     ]
   },
+
+  // ── Story 7: FORGIVENESS ──────────────────────────────────────────────────
   {
-    title: "THE BULLY PROBLEM",
-    setting: "Sunhaven School — recess on a Thursday",
+    title: { en: "THE WORDS THAT WEIGH", ar: "الكلمات الثقيلة" },
+    setting: { en: "Sunhaven Park — after school", ar: "حديقة صنهيفن — بعد المدرسة" },
+    story: {
+      en: "Nadia broke a promise to her best friend Sara and hasn't apologized. She tells herself it's not a big deal. But deep down she knows the truth. Zara shows her that saying sorry is one of the bravest things you can do.",
+      ar: "أخلفت ناديا وعداً لصديقتها سارة ولم تعتذر. تقول لنفسها إنه ليس بالأمر الكبير. لكنها في قرارة نفسها تعرف الحقيقة. تريها زارا أن قول آسف من أشجع الأشياء."
+    },
     panels: [
-      { caption: "On the playground, a kind boy named Sam stands alone.", speech: "Why won't you just leave me alone!", speaker: "Sam", isZara: false, scene: "school playground, small sad boy confronted by bigger kid pointing at him, other children watching, tense comic panel" },
-      { caption: "Zara was passing by on her way to a far-off adventure…", speech: "Hold on — something's not right here.", speaker: "Zara", isZara: true, scene: "girl superhero pausing mid-flight above school fence, noticing the scene below, concerned expression, sunny school setting, comic art" },
-      { caption: "Zara lands and speaks softly — to BOTH of them.", speech: "You know, the strongest people I've ever met lift others up.", speaker: "Zara", isZara: true, scene: "girl superhero kneeling at eye level speaking gently to two boys, calm wise expression, golden light around her, school setting, thoughtful comic panel" },
-      { caption: "By afternoon, new friends walk home together.", speech: "I'm sorry, Sam. Want to play tomorrow?", speaker: "Former Bully", isZara: false, scene: "two boys walking together smiling after school, superhero girl watching from rooftop with satisfied smile, warm golden afternoon light, heartwarming comic" }
-    ]
-  },
-  {
-    title: "POWER OUT CITY",
-    setting: "Metropolis Central — midnight blackout",
-    panels: [
-      { caption: "Every light in the city goes dark at midnight. Panic spreads.", speech: "The hospital backup grid is failing — patients are at risk!", speaker: "Doctor", isZara: false, scene: "entire city in blackout at night, panicked people with flashlights, hospital windows going dark, urgent dramatic comic panel" },
-      { caption: "Zara sees the city from above — a sea of darkness.", speech: "The hospital first. Then I'll light the whole city.", speaker: "Zara", isZara: true, scene: "girl superhero flying over completely dark city at night, only her golden glow visible from above, heroic silhouette, epic comic art" },
-      { caption: "Zara channels solar energy stored in her core — enough for hours.", speech: "I've been soaking up sunlight for this exact moment!", speaker: "Zara", isZara: true, scene: "girl superhero hovering above city releasing massive golden energy wave outward lighting up buildings below, arms extended glowing intensely, spectacular comic art" },
-      { caption: "The city wakes up. Every light blazes. Every monitor beeps back to life.", speech: "She powered the ENTIRE CITY. With herself.", speaker: "Reporter", isZara: false, scene: "city fully lit up at night seen from above, joyful people at windows, hospital glowing, girl superhero exhausted but smiling floating above, news helicopter filming, triumphant comic art" }
-    ]
-  },
-  {
-    title: "THE SUNFLOWER FIELD",
-    setting: "Meadowvale Farm — a drought has hit hard",
-    panels: [
-      { caption: "Farmer Rosa's sunflowers are dying. A year of work — fading away.", speech: "Without these flowers, we can't pay for the school building repairs…", speaker: "Rosa", isZara: false, scene: "elderly farmer woman looking at wilting sunflower field in drought, cracked dry earth, worried expression, comic art" },
-      { caption: "Zara hears the worry in Rosa's voice from the sky above.", speech: "Those flowers want to bloom — I can feel it. Let me help.", speaker: "Zara", isZara: true, scene: "girl superhero landing gently in wilted sunflower field, kneeling down touching dry soil with glowing hand, kind expression, comic panel" },
-      { caption: "Zara draws moisture from the clouds and sunlight from within.", speech: "Sunshine from above AND below — that's the secret!", speaker: "Zara", isZara: true, scene: "girl superhero standing in field arms raised, golden light flowing downward into soil, water droplets forming and falling, sunflowers beginning to glow, magical comic art" },
-      { caption: "By sunset — a sea of gold. The school will be saved.", speech: "I've farmed fifty years… but I've never seen anything like this.", speaker: "Rosa", isZara: false, scene: "vast blooming golden sunflower field at sunset, old farmer and girl superhero standing together amid flowers, warm golden light, beautiful peaceful comic art" }
-    ]
-  },
-  {
-    title: "FRIENDS ACROSS THE SEA",
-    setting: "A Refugee Camp — a rainy grey morning",
-    panels: [
-      { caption: "Far from home, a family waits in the rain with nowhere warm to go.", speech: "Papa, will we ever find a home again?", speaker: "Child", isZara: false, scene: "family sitting under a tent in refugee camp in rain, father and young daughter hugging, sad but hopeful, grey skies, empathetic comic panel" },
-      { caption: "Zara arrives with aid workers — and something extra.", speech: "I can't build a new home today. But I can make today feel like one.", speaker: "Zara", isZara: true, scene: "girl superhero walking with aid workers carrying supplies into refugee camp, warm golden glow pushing back the grey rain, gentle smile, comic art" },
-      { caption: "Golden warmth fills the camp. Stories are shared. Songs are sung.", speech: "Tell me your home — I want to hear every wonderful thing about it.", speaker: "Zara", isZara: true, scene: "girl superhero sitting in large circle of camp residents of all ages, glowing warm dome over them keeping dry and warm, people laughing and talking, joyful community comic scene" },
-      { caption: "Some problems are too big for one hero. But kindness always fits.", speech: "She made us feel like people again. That's everything.", speaker: "Father", isZara: false, scene: "refugee camp with golden light breaking through clouds, children playing, adults smiling, superhero girl flying up and away waving, hopeful sunrise comic art" }
-    ]
-  },
-  {
-    title: "THE BROKEN ROBOT",
-    setting: "A Science Classroom — the day of the big competition",
-    panels: [
-      { caption: "Mia worked months on her robot. The morning of the show — it stops.", speech: "It won't turn on! Everything I worked for is gone…", speaker: "Mia", isZara: false, scene: "teenage girl sitting on floor crying next to broken robot science fair project, scattered parts, competition banner in background, sad comic panel" },
-      { caption: "Zara spotted the crying girl through the school window.", speech: "What happened? Tell me everything.", speaker: "Zara", isZara: true, scene: "girl superhero leaning through open school window looking concerned at upset teenage girl, golden morning light, comic art style" },
-      { caption: "Zara doesn't fix it FOR Mia. She helps Mia fix it HERSELF.", speech: "The spark is in YOU, Mia — the robot just needs a little of it.", speaker: "Zara", isZara: true, scene: "girl superhero and teenage girl working together on robot, glowing hands helping guide the repair, both focused and determined, tools scattered around, empowering comic panel" },
-      { caption: "First place. But Mia knows — the real win happened earlier today.", speech: "I didn't just win a trophy. I learned I can solve anything.", speaker: "Mia", isZara: false, scene: "teenage girl holding first place trophy beaming with pride, robot standing working beside her, superhero girl applauding from crowd in background, triumphant school comic art" }
-    ]
-  },
-  {
-    title: "OCEAN RESCUE",
-    setting: "The Open Sea — a sailing race gone wrong",
-    panels: [
-      { caption: "A youth sailing team capsizes in rough waters miles from shore.", speech: "MAYDAY! MAYDAY! We're taking on water — four kids aboard!", speaker: "Coast Guard Radio", isZara: false, scene: "capsized sailboat in stormy ocean waves, four young sailors in life jackets in water, dark clouds, emergency flare in sky, dramatic comic panel" },
-      { caption: "Zara is already moving before the broadcast ends.", speech: "Four heat signatures. Northeast. Three minutes.", speaker: "Zara", isZara: true, scene: "girl superhero shooting across ocean surface extremely fast leaving golden trail on water, determined face, stormy sea, dynamic action comic art" },
-      { caption: "She lifts all four aboard a makeshift platform of solid sunlight.", speech: "This platform is solid — it'll hold! Let's get you home.", speaker: "Zara", isZara: true, scene: "girl superhero creating glowing golden platform on water surface with four young sailors sitting on it safely, calming rough waves around them, comic art" },
-      { caption: "The coastguard couldn't believe their instruments.", speech: "They're all safe — dried off and smiling. HOW is that possible?!", speaker: "Coast Guard Captain", isZara: false, scene: "coast guard boat with four young sailors wrapped in blankets grinning, superhero girl waving from the water, coast guard captain speechless, sunny sky returning, joyful comic" }
-    ]
-  },
-  {
-    title: "THE MIDNIGHT GARDEN",
-    setting: "City Community Garden — a surprise late-night visit",
-    panels: [
-      { caption: "The community garden has been vandalized. Weeks of work destroyed.", speech: "All our vegetables… the children's art… everything is ruined.", speaker: "Garden Keeper", isZara: false, scene: "elderly garden keeper looking at vandalized community garden at night, broken plants and torn artwork, devastated expression, moonlit comic panel" },
-      { caption: "Zara can heal more than people.", speech: "Broken things can grow back stronger. I'll prove it.", speaker: "Zara", isZara: true, scene: "girl superhero kneeling in ruined garden at night, hands glowing golden touching broken plants, focused healing expression, moonlight and golden light, comic art" },
-      { caption: "Golden light accelerates new growth. In hours, the garden blooms anew.", speech: "Come ON, little seeds — there are children counting on you!", speaker: "Zara", isZara: true, scene: "girl superhero surrounded by rapidly blooming plants and flowers in golden light, magical growth accelerating all around her, night garden glowing, spectacular comic panel" },
-      { caption: "Dawn reveals a garden MORE beautiful than before.", speech: "The children will arrive in one hour… and they will find magic.", speaker: "Garden Keeper", isZara: false, scene: "dawn breaking over lush beautiful community garden, elderly keeper and superhero standing together in wonder, more vibrant than before, hopeful morning comic art" }
-    ]
-  },
-  {
-    title: "THE SINGING STORM",
-    setting: "Harmony Hall — the night of the big concert",
-    panels: [
-      { caption: "Omar practised all year for this. Stage fright has him frozen solid.", speech: "I… I can't go out there. My voice won't work. I'm so sorry.", speaker: "Omar", isZara: false, scene: "young boy in concert outfit frozen with stage fright backstage, audience murmur visible through curtain, anxious expression, comic panel" },
-      { caption: "Zara found him in the wings — shaking, silent.", speech: "Your voice is in there. Locked up by fear. Let's find the key.", speaker: "Zara", isZara: true, scene: "girl superhero crouching to eye level with nervous young boy backstage, kind steady eyes, golden warm light, reassuring moment, comic art" },
-      { caption: "A little golden warmth on the heart goes a long way.", speech: "Feel that? That's YOUR light, Omar. It was always there.", speaker: "Zara", isZara: true, scene: "girl superhero gently placing glowing hand on young boy's chest, boy's eyes widening with confidence, warm golden light blooming from within him, touching comic scene" },
-      { caption: "The standing ovation lasted four full minutes.", speech: "That was the most beautiful thing I have ever heard.", speaker: "Audience Member", isZara: false, scene: "young boy on stage performing to packed audience in standing ovation, tears of joy, superhero girl watching proudly from empty seat in back row smiling, triumphant comic art" }
-    ]
-  },
-  {
-    title: "ZARA AND THE LITTLE STAR",
-    setting: "A Remote Desert — a meteor shower night",
-    panels: [
-      { caption: "Deep in the desert, a young girl spots something glowing in the sand.", speech: "What… are you? You're hurt, aren't you?", speaker: "Nadia", isZara: false, scene: "young girl in desert at night crouching near small glowing object in sand, meteor shower above, curious and gentle expression, magical comic panel" },
-      { caption: "It's a piece of star — lost and fading far from home.", speech: "I've seen this before. A stellar fragment. We have to help it.", speaker: "Zara", isZara: true, scene: "girl superhero landing in desert kneeling beside small glowing star fragment, Nadia beside her, wonder on both faces, night sky with meteors, comic art" },
-      { caption: "Zara uses every bit of solar energy she has to guide it home.", speech: "This might take everything I've got — but it's worth it.", speaker: "Zara", isZara: true, scene: "girl superhero channeling all her golden energy upward in beam toward night sky carrying small star fragment up and up, straining with effort but determined, spectacular comic art" },
-      { caption: "A new star appears in the constellation above. It twinkles — just for them.", speech: "Did it… did it make it home?", speaker: "Nadia", isZara: false, scene: "Nadia and exhausted but happy superhero girl lying in desert sand staring up at night sky, new bright star twinkling among constellations, beautiful peaceful comic art" }
+      {
+        caption: { en: "Nadia sees Sara at the park. Sara turns away.", ar: "ترى ناديا سارة في الحديقة. تنعطف سارة بعيداً." },
+        speech: { en: "She should be over it by now. It wasn't even that big a deal!", ar: "يجب أن تكون قد تجاوزت الأمر. لم يكن بهذه الأهمية!" },
+        speaker: "Nadia", isHero: false,
+        scene: "two girls in park, one turning away from the other, tension between former friends, afternoon light"
+      },
+      {
+        caption: { en: "Zara sits beside Nadia on the bench.", ar: "تجلس زارا بجانب ناديا على المقعد." },
+        speech: { en: "Do you actually think it wasn't a big deal — or are you just afraid to say sorry?", ar: "هل تعتقدين فعلاً أنه لم يكن مهماً — أم أنك خائفة من قول آسف؟" },
+        speaker: "Zara", isHero: true,
+        scene: "girl superhero sitting beside defensive girl on park bench, asking a direct honest question gently"
+      },
+      {
+        caption: { en: "The honest question lands hard.", ar: "يُصيب السؤال الصادق هدفه." },
+        speech: { en: "…I knew I hurt her. I just didn't want to feel bad about it.", ar: "…علمت أنني أذيتها. فقط لم أرد الشعور بالسوء حيال ذلك." },
+        speaker: "Nadia", isHero: false,
+        scene: "girl on park bench looking down with realization on her face, the truth dawning on her, golden afternoon light"
+      },
+      {
+        caption: { en: "Nadia walks over to Sara. Two words. All the difference.", ar: "تمشي ناديا نحو سارة. كلمتان. كل الفارق." },
+        speech: { en: "Sara… I'm really sorry. You deserved better from me.", ar: "سارة… أنا آسفة حقاً. كنت تستحقين أفضل مني." },
+        speaker: "Nadia", isHero: false,
+        scene: "girl approaching her friend with genuine sorry expression, friend's cold expression beginning to soften, park setting, Zara watching with warm smile from distance"
+      }
     ]
   }
+
 ];
 
 // ===== DATE UTILS =====
 
 function dateToDayNumber(date) {
-  const epoch = new Date(2025, 0, 1); // Jan 1 2025 = Day 1
-  const ms = date - epoch;
-  return Math.max(1, Math.floor(ms / 86400000) + 1);
+  const epoch = new Date(2026, 3, 18); // April 18 2026 = Day 1
+  return Math.max(1, Math.floor((date - epoch) / 86400000) + 1);
 }
 
 function dayNumberToDate(n) {
-  const epoch = new Date(2025, 0, 1);
+  const epoch = new Date(2026, 3, 18);
   return new Date(epoch.getTime() + (n - 1) * 86400000);
 }
 
 function formatDate(date) {
-  return date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  const locale = currentLang === 'ar' ? 'ar-SA' : 'en-US';
+  return date.toLocaleDateString(locale, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 }
 
 function getAdventureForDay(dayNum) {
-  const idx = (dayNum - 1) % ADVENTURES.length;
-  return ADVENTURES[idx];
+  return ADVENTURES[(dayNum - 1) % ADVENTURES.length];
 }
 
-// ===== POLLINATIONS IMAGE URL =====
+// ===== LANGUAGE =====
+
+function setLanguage(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  updateStaticUI();
+  renderComic(currentDay);
+}
+
+const UI_TEXT = {
+  en: { prev: '◀ PREV', next: 'NEXT ▶', episode: 'EPISODE', share: 'Share today\'s comic:', copy: '🔗 Copy Link', twitter: '🐦 Twitter' },
+  ar: { prev: '◀ السابق', next: 'التالي ▶', episode: 'الحلقة', share: 'شارك قصة اليوم:', copy: '🔗 نسخ الرابط', twitter: '🐦 تويتر' }
+};
+
+function updateStaticUI() {
+  const t = UI_TEXT[currentLang];
+  const el = id => document.getElementById(id);
+  if (el('prevBtn')) el('prevBtn').textContent = t.prev;
+  if (el('nextBtn')) el('nextBtn').textContent = t.next;
+  if (el('episodeLabel')) el('episodeLabel').textContent = t.episode;
+  if (el('shareLabel')) el('shareLabel').textContent = t.share;
+  if (el('copyBtn')) el('copyBtn').textContent = t.copy;
+  if (el('twitterBtn')) el('twitterBtn').textContent = t.twitter;
+}
+
+// ===== IMAGE URL =====
 
 function buildImageUrl(panel, panelIndex, dayNum) {
-  const seed = dayNum * 100 + panelIndex;
-  const prompt = `${ZARA_BASE_PROMPT}, ${panel.scene}, vibrant colors, clean lines, no text, no watermark, comic book panel`;
-  const encoded = encodeURIComponent(prompt);
-  return `https://image.pollinations.ai/prompt/${encoded}?width=400&height=300&seed=${seed}&nologo=true&enhance=false&model=flux-schnell`;
+  const seed = dayNum * 100 + panelIndex + 100;
+  const prompt = `${ZARA_BASE_PROMPT}, ${panel.scene}, vibrant colors, clean lines, no text, no watermark`;
+  return `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=400&height=300&seed=${seed}&nologo=true&enhance=false&model=flux-schnell`;
 }
 
-// ===== RENDER COMIC =====
+// ===== RENDER =====
 
 function renderComic(dayNum) {
   const adventure = getAdventureForDay(dayNum);
   const date = dayNumberToDate(dayNum);
   const todayNum = dateToDayNumber(new Date());
 
-  // Update header info
   document.getElementById('episodeNum').textContent = `#${dayNum}`;
   document.getElementById('dateLabel').textContent = formatDate(date);
-  document.getElementById('comicTitle').textContent = adventure.title;
-  document.getElementById('comicSetting').textContent = `📍 ${adventure.setting}`;
+  document.getElementById('comicTitle').textContent = adventure.title[currentLang];
+  document.getElementById('comicSetting').textContent = `📍 ${adventure.setting[currentLang]}`;
   const storyEl = document.getElementById('comicStory');
-  if (storyEl) storyEl.textContent = adventure.story || '';
+  if (storyEl) storyEl.textContent = adventure.story[currentLang];
 
-  // Nav buttons
   document.getElementById('prevBtn').disabled = dayNum <= 1;
   document.getElementById('nextBtn').disabled = dayNum >= todayNum;
 
-  // Render panels
   const grid = document.getElementById('panelsGrid');
   grid.innerHTML = '';
 
   adventure.panels.forEach((panel, i) => {
     const imgUrl = buildImageUrl(panel, i, dayNum);
+    const label = currentLang === 'ar' ? `اللوحة ${i + 1}` : `${i + 1}`;
+    const caption = panel.caption[currentLang];
+    const speech = panel.speech[currentLang];
 
     const el = document.createElement('div');
     el.className = 'panel';
-    // Build HTML without src — attach handlers first, then set src to avoid race condition
     el.innerHTML = `
-      <div class="panel-num">${i + 1}</div>
+      <div class="panel-num">${label}</div>
       <div class="panel-img-wrap">
         <div class="panel-loader" id="loader-${i}">
           <div class="loader-sun">☀</div>
-          <div class="loader-text">Drawing panel ${i + 1}…</div>
+          <div class="loader-text">${currentLang === 'ar' ? `رسم اللوحة ${i + 1}…` : `Drawing panel ${i + 1}…`}</div>
         </div>
-        <img
-          class="panel-img loading"
-          id="img-${i}"
-          alt="Panel ${i + 1}: ${panel.caption}"
-        />
-        <div class="speech-bubble ${panel.isZara ? 'zara' : ''}">
+        <img class="panel-img loading" id="img-${i}" alt="${caption}" />
+        <div class="speech-bubble ${panel.isHero ? 'zara' : ''}">
           <span class="bubble-speaker">${panel.speaker}</span>
-          "${panel.speech}"
+          "${speech}"
         </div>
       </div>
-      <div class="panel-caption">${panel.caption}</div>
+      <div class="panel-caption">${caption}</div>
     `;
-
     grid.appendChild(el);
 
     const img = el.querySelector(`#img-${i}`);
     const loader = el.querySelector(`#loader-${i}`);
 
-    function revealImage() {
-      img.classList.remove('loading');
-      img.classList.add('loaded');
-      loader.classList.add('hidden');
-    }
-
-    img.onload = revealImage;
-
+    img.onload = () => { img.classList.replace('loading', 'loaded'); loader.classList.add('hidden'); };
     img.onerror = () => {
       img.style.display = 'none';
-      loader.innerHTML = `<div style="text-align:center;padding:20px;font-size:.85rem;color:#666;">
-        <div style="font-size:2rem;margin-bottom:8px">🎨</div>
-        <div><em>${panel.caption}</em></div>
-        <div style="margin-top:8px;font-size:.75rem;color:#aaa">Image generating…<br>Refresh to retry</div>
+      loader.innerHTML = `<div style="text-align:center;padding:20px;color:#888;">
+        <div style="font-size:2rem">🎨</div>
+        <em style="font-size:.85rem">${caption}</em>
+        <div style="font-size:.75rem;margin-top:8px;color:#aaa">${currentLang === 'ar' ? 'جارٍ رسم الصورة… أعد التحميل' : 'Generating… refresh to retry'}</div>
       </div>`;
       loader.classList.remove('hidden');
     };
-
-    // Stagger loads so panels don't all hit the API simultaneously
-    setTimeout(() => { img.src = imgUrl; }, i * 500);
+    setTimeout(() => { img.src = imgUrl; }, i * 600);
   });
 
-  // Update URL without reload
   const url = new URL(window.location);
-  if (dayNum === todayNum) {
-    url.searchParams.delete('day');
-  } else {
-    url.searchParams.set('day', dayNum);
-  }
+  dayNum === todayNum ? url.searchParams.delete('day') : url.searchParams.set('day', dayNum);
   window.history.replaceState({}, '', url);
-
-  // Scroll to main
   document.querySelector('main').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// ===== NAVIGATION =====
-
+// ===== NAV =====
 let currentDay = dateToDayNumber(new Date());
+function changeDay(delta) { currentDay += delta; renderComic(currentDay); }
+function toggleCharCard() { document.getElementById('charCard').classList.toggle('open'); }
 
-function changeDay(delta) {
-  currentDay += delta;
-  renderComic(currentDay);
-}
-
-// ===== CHARACTER CARD TOGGLE =====
-
-function toggleCharCard() {
-  const card = document.getElementById('charCard');
-  card.classList.toggle('open');
-}
-
-// ===== SHARING =====
-
+// ===== SHARE =====
 function copyLink() {
-  const url = window.location.href;
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(url).then(() => showToast('Link copied! ☀')).catch(() => fallbackCopy(url));
-  } else {
-    fallbackCopy(url);
-  }
+  navigator.clipboard?.writeText(window.location.href).then(() => showToast(currentLang === 'ar' ? 'تم نسخ الرابط! 🔗' : 'Link copied! 🔗'));
 }
-
-function fallbackCopy(text) {
-  const ta = document.createElement('textarea');
-  ta.value = text;
-  ta.style.cssText = 'position:fixed;opacity:0';
-  document.body.appendChild(ta);
-  ta.select();
-  document.execCommand('copy');
-  document.body.removeChild(ta);
-  showToast('Link copied! ☀');
-}
-
 function shareTwitter() {
-  const adventure = getAdventureForDay(currentDay);
-  const text = `Reading ZARA THE SUNBEAM Episode #${currentDay}: "${adventure.title}" — a new free comic every day! 🌟`;
-  const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}`;
-  window.open(url, '_blank');
+  const text = encodeURIComponent('Check out today\'s ZARA THE SUNBEAM comic! ☀');
+  window.open(`https://twitter.com/intent/tweet?text=${text}&url=${encodeURIComponent(window.location.href)}`, '_blank');
 }
-
 function showToast(msg) {
   const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
+  t.textContent = msg; t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2500);
 }
 
 // ===== INIT =====
-
-(function init() {
-  // Check for ?day= param
+document.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
-  const dayParam = parseInt(params.get('day'));
-  const todayNum = dateToDayNumber(new Date());
-
-  if (dayParam && dayParam >= 1 && dayParam <= todayNum) {
-    currentDay = dayParam;
-  } else {
-    currentDay = todayNum;
-  }
-
+  if (params.has('day')) currentDay = Math.max(1, parseInt(params.get('day')) || currentDay);
   renderComic(currentDay);
-})();
+  updateStaticUI();
+});

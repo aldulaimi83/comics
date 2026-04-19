@@ -15,10 +15,14 @@
         <div class="moon-icon">🌙</div>
         <div>
           <h1 class="site-title">LUNA THE NIGHTWEAVER</h1>
-          <p class="site-sub">Darkness Is Not the Enemy — A New Chapter Every Night</p>
+          <p class="site-sub">Darkness Is Not the Enemy — A New Story Every Night</p>
         </div>
       </div>
       <div class="header-btns">
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="en" onclick="setLanguage('en')">EN</button>
+          <button class="lang-btn" data-lang="ar" onclick="setLanguage('ar')">عربي</button>
+        </div>
         <a href="index.html" class="universe-btn">🌌 Universe</a>
         <button class="char-btn" onclick="toggleCharCard()">Meet Luna ✦</button>
         <a href="zara.html" class="universe-btn" style="background:#FFD600;">☀ Zara</a>
@@ -29,7 +33,7 @@
   <div class="char-card" id="charCard">
     <div class="char-card-inner">
       <img class="char-portrait"
-        src="https://image.pollinations.ai/prompt/anime%20illustration%2C%20mysterious%20teenage%20girl%20superhero%20named%20Luna%2C%20silver%20white%20hair%20flowing%2C%20pale%20glowing%20violet%20eyes%2C%20dark%20midnight%20cloak%20that%20becomes%20starry%20sky%20pattern%2C%20moonlight%20and%20silver%20light%20surrounding%20her%2C%20rooftop%20at%20night%2C%20elegant%20ethereal%20mysterious%20expression%2C%20no%20text?width=300&height=400&seed=4001&nologo=true&model=flux"
+        src="https://image.pollinations.ai/prompt/anime%20illustration%2C%20mysterious%20teenage%20girl%20superhero%20named%20Luna%2C%20silver%20white%20hair%20flowing%2C%20pale%20glowing%20violet%20eyes%2C%20dark%20midnight%20cloak%20that%20becomes%20starry%20sky%20pattern%2C%20moonlight%20and%20silver%20light%20surrounding%20her%2C%20rooftop%20at%20night%2C%20elegant%20ethereal%20mysterious%20expression%2C%20no%20text?width=300&height=400&seed=4001&nologo=true&enhance=false&model=flux-schnell"
         alt="Luna the Nightweaver" loading="lazy" />
       <div class="char-info">
         <h2 class="char-name">🌙 LUNA THE NIGHTWEAVER 🌙</h2>
@@ -41,15 +45,8 @@
           <li>💫 <strong>Starlight Heal</strong> — Silver light mends wounds and calms fear</li>
           <li>🔮 <strong>Night Sight</strong> — Sees perfectly in total darkness, reads emotion in shadows</li>
         </ul>
-        <p class="char-origin">Luna has lived on the rooftop observatory of her grandmother's apartment building since she was old enough to climb. She never liked the noise below — but the sky always made sense. On the night of the full moon eclipse, something came down from the dark and gave her a gift she didn't ask for and can't give back. She's still figuring out if she minds.</p>
+        <p class="char-origin">Luna has lived on the rooftop observatory of her grandmother's apartment building since she was old enough to climb. She never liked the noise below — but the sky always made sense. On the night of the full moon eclipse, something came down from the dark and gave her a gift she didn't ask for. She's still figuring out if she minds.</p>
       </div>
-    </div>
-  </div>
-
-  <div class="origin-banner" id="originBanner" style="display:none">
-    <div class="origin-banner-inner">
-      <span class="origin-icon">📖</span>
-      <div><strong>ORIGIN STORY IN PROGRESS</strong> <span id="originProgress">Follow Luna from the very beginning — the night is just beginning!</span></div>
     </div>
   </div>
 
@@ -57,13 +54,12 @@
     <div class="date-nav">
       <button class="nav-btn" id="prevBtn" onclick="changeDay(-1)">◀ PREV</button>
       <div class="date-display">
-        <div class="episode-label">EPISODE</div>
+        <div class="episode-label" id="episodeLabel">EPISODE</div>
         <div class="episode-num" id="episodeNum">—</div>
         <div class="date-label" id="dateLabel">Loading…</div>
       </div>
       <button class="nav-btn" id="nextBtn" onclick="changeDay(1)">NEXT ▶</button>
     </div>
-    <div class="origin-tag" id="originTag" style="display:none">📖 ORIGIN STORY</div>
     <div class="comic-title-wrap">
       <h2 class="comic-title" id="comicTitle">Loading tonight's chapter…</h2>
       <p class="comic-setting" id="comicSetting"></p>
@@ -71,9 +67,9 @@
     </div>
     <div class="panels-grid" id="panelsGrid"></div>
     <div class="sharing-bar">
-      <span>Share tonight's comic:</span>
-      <button onclick="copyLink()" class="share-btn">🔗 Copy Link</button>
-      <button onclick="shareTwitter()" class="share-btn">🐦 Twitter</button>
+      <span id="shareLabel">Share tonight's comic:</span>
+      <button onclick="copyLink()" class="share-btn" id="copyBtn">🔗 Copy Link</button>
+      <button onclick="shareTwitter()" class="share-btn" id="twitterBtn">🐦 Twitter</button>
       <a href="index.html" class="share-btn universe-link">🌌 Universe</a>
     </div>
   </main>

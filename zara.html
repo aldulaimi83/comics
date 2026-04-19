@@ -21,6 +21,10 @@
         </div>
       </div>
       <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="en" onclick="setLanguage('en')">EN</button>
+          <button class="lang-btn" data-lang="ar" onclick="setLanguage('ar')">عربي</button>
+        </div>
         <a href="index.html" class="kael-link-btn" style="background:#F59E0B;color:#000;">🌌 Universe</a>
         <button class="char-btn" onclick="toggleCharCard()">Meet Zara ✦</button>
         <a href="kael.html" class="kael-link-btn">💨 Meet Kael</a>
@@ -31,7 +35,7 @@
   <!-- CHARACTER CARD -->
   <div class="char-card" id="charCard">
     <div class="char-card-inner">
-      <img class="char-portrait" src="https://image.pollinations.ai/prompt/anime%20illustration%2C%20young%20girl%20superhero%2C%20long%20glowing%20golden%20hair%20with%20tiny%20stars%2C%20bright%20purple%20and%20gold%20costume%20with%20sun%20emblem%20on%20chest%2C%20warm%20golden%20aura%2C%20friendly%20big%20smile%2C%20arms%20wide%20open%2C%20sky%20background%2C%20vibrant%20comic%20book%20style%2C%20no%20text?width=300&height=400&seed=777&nologo=true&model=flux" alt="Zara the Sunbeam" loading="lazy" />
+      <img class="char-portrait" src="https://image.pollinations.ai/prompt/anime%20illustration%2C%20young%20girl%20superhero%2C%20long%20glowing%20golden%20hair%20with%20tiny%20stars%2C%20bright%20purple%20and%20gold%20costume%20with%20sun%20emblem%20on%20chest%2C%20warm%20golden%20aura%2C%20friendly%20big%20smile%2C%20arms%20wide%20open%2C%20sky%20background%2C%20vibrant%20comic%20book%20style%2C%20no%20text?width=300&height=400&seed=777&nologo=true&enhance=false&model=flux-schnell" alt="Zara the Sunbeam" loading="lazy" />
       <div class="char-info">
         <h2 class="char-name">⚡ ZARA THE SUNBEAM ⚡</h2>
         <p class="char-tagline">"When the sun shines, hope returns!"</p>
@@ -52,7 +56,7 @@
     <div class="date-nav">
       <button class="nav-btn" id="prevBtn" onclick="changeDay(-1)">◀ PREV</button>
       <div class="date-display">
-        <div class="episode-label">EPISODE</div>
+        <div class="episode-label" id="episodeLabel">EPISODE</div>
         <div class="episode-num" id="episodeNum">—</div>
         <div class="date-label" id="dateLabel">Loading…</div>
       </div>
@@ -70,9 +74,9 @@
     </div>
 
     <div class="sharing-bar">
-      <span>Share today's comic:</span>
-      <button onclick="copyLink()" class="share-btn">🔗 Copy Link</button>
-      <button onclick="shareTwitter()" class="share-btn">🐦 Twitter</button>
+      <span id="shareLabel">Share today's comic:</span>
+      <button onclick="copyLink()" class="share-btn" id="copyBtn">🔗 Copy Link</button>
+      <button onclick="shareTwitter()" class="share-btn" id="twitterBtn">🐦 Twitter</button>
       <a href="index.html" class="share-btn kael-universe-btn">🌌 Universe</a>
       <a href="kael.html" class="share-btn kael-universe-btn">💨 Also read Kael!</a>
     </div>
