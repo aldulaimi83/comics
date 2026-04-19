@@ -176,7 +176,7 @@ function getEpisodeForDay(dayNum) {
 function buildImageUrl(panel, panelIndex, dayNum) {
   const seed = (dayNum * 100 + panelIndex + 999);
   const prompt = `${NOUR_BASE_PROMPT}, ${panel.scene}, vibrant colors, clean lines, no text, no watermark, manga comic book panel`;
-  return `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=512&height=384&seed=${seed}&nologo=true&model=flux`;
+  return `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=400&height=300&seed=${seed}&nologo=true&enhance=false&model=flux-schnell`;
 }
 
 function renderComic(dayNum) {
@@ -217,7 +217,7 @@ function renderComic(dayNum) {
     const img = el.querySelector(`#nimg-${i}`), loader = el.querySelector(`#nloader-${i}`);
     img.onload = () => { img.classList.remove('loading'); img.classList.add('loaded'); loader.classList.add('hidden'); };
     img.onerror = () => { img.style.display = 'none'; loader.innerHTML = `<div style="text-align:center;padding:20px;font-size:.85rem;color:#0f4c48;font-family:Cairo,sans-serif;"><div style="font-size:2rem;margin-bottom:8px">🌅</div><div><em>${panel.caption}</em></div><div style="margin-top:8px;font-size:.75rem;color:#aaa">جار توليد الصورة…<br>حدّث الصفحة للمحاولة مجدداً</div></div>`; loader.classList.remove('hidden'); };
-    img.src = buildImageUrl(panel, i, dayNum);
+    setTimeout(() => { img.src = buildImageUrl(panel, i, dayNum); }, i * 500);
   });
   const url = new URL(window.location);
   dayNum === todayNum ? url.searchParams.delete('day') : url.searchParams.set('day', dayNum);

@@ -167,7 +167,7 @@ function getEpisodeForDay(dayNum) {
 function buildImageUrl(panel, panelIndex, dayNum) {
   const seed = (dayNum * 100 + panelIndex + 555);
   const prompt = `${TARIQ_BASE_PROMPT}, ${panel.scene}, vibrant colors, clean lines, no text, no watermark, manga comic book panel`;
-  return `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=512&height=384&seed=${seed}&nologo=true&model=flux`;
+  return `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=400&height=300&seed=${seed}&nologo=true&enhance=false&model=flux-schnell`;
 }
 
 function renderComic(dayNum) {
@@ -226,7 +226,7 @@ function renderComic(dayNum) {
       loader.innerHTML = `<div style="text-align:center;padding:20px;font-size:.85rem;color:#451a03;"><div style="font-size:2rem;margin-bottom:8px">🪨</div><div><em>${panel.caption}</em></div><div style="margin-top:8px;font-size:.75rem;color:#aaa">Drawing from stone…<br>Refresh to retry</div></div>`;
       loader.classList.remove('hidden');
     };
-    img.src = buildImageUrl(panel, i, dayNum);
+    setTimeout(() => { img.src = buildImageUrl(panel, i, dayNum); }, i * 500);
   });
 
   const url = new URL(window.location);

@@ -184,7 +184,7 @@ function buildImageUrl(panel, panelIndex, dayNum) {
   const seed = dayNum * 100 + panelIndex;
   const prompt = `${ZARA_BASE_PROMPT}, ${panel.scene}, vibrant colors, clean lines, no text, no watermark, comic book panel`;
   const encoded = encodeURIComponent(prompt);
-  return `https://image.pollinations.ai/prompt/${encoded}?width=512&height=384&seed=${seed}&nologo=true&model=flux`;
+  return `https://image.pollinations.ai/prompt/${encoded}?width=400&height=300&seed=${seed}&nologo=true&enhance=false&model=flux-schnell`;
 }
 
 // ===== RENDER COMIC =====
@@ -259,8 +259,8 @@ function renderComic(dayNum) {
       loader.classList.remove('hidden');
     };
 
-    // Set src after handlers are attached — prevents cached-image race condition
-    img.src = imgUrl;
+    // Stagger loads so panels don't all hit the API simultaneously
+    setTimeout(() => { img.src = imgUrl; }, i * 500);
   });
 
   // Update URL without reload
