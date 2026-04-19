@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>نور الفجر — القصص اليومية</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Bangers&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="nour-style.css" />
+</head>
+<body>
+
+  <!-- الرأس -->
+  <header>
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <div class="dawn-icon">🌅</div>
+        <div>
+          <h1 class="site-title">نور الفجر</h1>
+          <p class="site-sub">بطلة الضوء والأمل — قصة جديدة كل يوم</p>
+        </div>
+      </div>
+      <div class="header-btns">
+        <a href="index.html" class="universe-btn">🌌 الكون</a>
+        <button class="char-btn" onclick="toggleCharCard()">تعرّف على نور ✦</button>
+        <a href="rima.html" class="universe-btn" style="background:#EF4444;color:#fff;border-color:#991b1b;">⚡ ريما</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- بطاقة الشخصية -->
+  <div class="char-card" id="charCard">
+    <div class="char-card-inner">
+      <img class="char-portrait"
+        src="https://image.pollinations.ai/prompt/anime%20illustration%2C%20beautiful%20young%20Arab%20girl%20superhero%20named%20Nour%2C%20wearing%20teal%20and%20gold%20hijab%2C%20dawn%20light%20radiating%20from%20her%20outstretched%20hands%2C%20sunrise%20background%20with%20golden%20teal%20rays%2C%20hopeful%20warm%20expression%2C%20powerful%20heroic%20pose%2C%20vibrant%20comic%20art%2C%20no%20text?width=300&height=400&seed=5001&nologo=true&model=flux"
+        alt="نور الفجر" loading="lazy" />
+      <div class="char-info">
+        <h2 class="char-name">🌅 نور الفجر 🌅</h2>
+        <p class="char-tagline">"النور يبدأ من قلب واحد شجاع"</p>
+        <ul class="char-traits">
+          <li>🌅 <strong>نور الفجر</strong> — تستدعي أولى خيوط ضوء الفجر كقوة فيزيائية</li>
+          <li>💫 <strong>الشفاء الذهبي</strong> — تشفي الجروح والحزن بنور دافئ ذهبي</li>
+          <li>🛡 <strong>درع الضياء</strong> — تبني جداراً من طاقة النور لحماية الآخرين</li>
+          <li>✨ <strong>بصيرة النور</strong> — ترى في الظلام الدامس وتشعر بالخطر من بعيد</li>
+          <li>🌈 <strong>قلب لا يستسلم</strong> — كلما اشتدّ الظلام، كان نورها أقوى</li>
+        </ul>
+        <p class="char-origin">وُلدت نور في مدينة الفجر الساحلية في لحظة غريبة — عند الفجر تماماً، حين بدأ ضوء الشمس الأول يلمس الأفق. قالت جدّتها إن الطفلة فتحت عينيها قبل الولادة لترى الضوء. في الثالثة عشرة من عمرها، خلال ظلام كامل غطّى المدينة، مدّت نور يدها في الحلك وجاء الضوء. ليس من مصباح. منها.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- شعار القصة الأصلية -->
+  <div class="origin-banner" id="originBanner" style="display:none">
+    <div class="origin-banner-inner">
+      <span class="origin-icon">📖</span>
+      <div><strong>قصة البدايات جارية</strong> <span id="originProgress">تابع نور من البداية — فجرها بدأ للتو!</span></div>
+    </div>
+  </div>
+
+  <!-- منطقة الكوميكس -->
+  <main>
+    <div class="date-nav">
+      <button class="nav-btn" id="prevBtn" onclick="changeDay(-1)">◀ السابق</button>
+      <div class="date-display">
+        <div class="episode-label">الحلقة</div>
+        <div class="episode-num" id="episodeNum">—</div>
+        <div class="date-label" id="dateLabel">جار التحميل…</div>
+      </div>
+      <button class="nav-btn" id="nextBtn" onclick="changeDay(1)">التالي ▶</button>
+    </div>
+
+    <div class="origin-tag" id="originTag" style="display:none">📖 قصة البدايات</div>
+
+    <div class="comic-title-wrap">
+      <h2 class="comic-title" id="comicTitle">جار تحميل مغامرة اليوم…</h2>
+      <p class="comic-setting" id="comicSetting"></p>
+      <p class="comic-story" id="comicStory"></p>
+    </div>
+
+    <div class="panels-grid" id="panelsGrid"></div>
+
+    <div class="sharing-bar">
+      <span>شارك قصة اليوم:</span>
+      <button onclick="copyLink()" class="share-btn">🔗 انسخ الرابط</button>
+      <button onclick="shareTwitter()" class="share-btn">🐦 تويتر</button>
+      <a href="index.html" class="share-btn universe-link">🌌 الكون</a>
+    </div>
+  </main>
+
+  <!-- التذييل -->
+  <footer>
+    <p>نور الفجر — جزء من <a href="index.html"><strong>كون سنهافن</strong></a> &nbsp;|&nbsp; الصور من <a href="https://pollinations.ai" target="_blank">Pollinations AI</a> (مجاني) &nbsp;|&nbsp; الاستضافة على <a href="https://pages.github.com" target="_blank">GitHub Pages</a> (مجاني)</p>
+    <p style="margin-top:6px;opacity:.5;font-size:.8rem">قصة جديدة كل يوم. مجاناً دائماً. بكل محبة. 🌅</p>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="nour-script.js"></script>
+</body>
+</html>

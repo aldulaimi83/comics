@@ -199,6 +199,8 @@ function renderComic(dayNum) {
   document.getElementById('dateLabel').textContent = formatDate(date);
   document.getElementById('comicTitle').textContent = adventure.title;
   document.getElementById('comicSetting').textContent = `📍 ${adventure.setting}`;
+  const storyEl = document.getElementById('comicStory');
+  if (storyEl) storyEl.textContent = adventure.story || '';
 
   // Nav buttons
   document.getElementById('prevBtn').disabled = dayNum <= 1;

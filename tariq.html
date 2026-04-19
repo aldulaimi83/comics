@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TARIQ THE IRONWALL — Daily Comics</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="tariq-style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <div class="earth-icon">🪨</div>
+        <div>
+          <h1 class="site-title">TARIQ THE IRONWALL</h1>
+          <p class="site-sub">The Earth Stands Firm — A New Chapter Every Day</p>
+        </div>
+      </div>
+      <div class="header-btns">
+        <a href="index.html" class="universe-btn">🌌 Universe</a>
+        <button class="char-btn" onclick="toggleCharCard()">Meet Tariq ✦</button>
+        <a href="rima.html" class="universe-btn" style="background:#EF4444;color:#fff;border-color:#991b1b;">⚡ Rima</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="char-card" id="charCard">
+    <div class="char-card-inner">
+      <img class="char-portrait"
+        src="https://image.pollinations.ai/prompt/anime%20illustration%2C%20muscular%20teenage%20Arab%20boy%20superhero%20named%20Tariq%2C%20brown%20skin%2C%20copper%20bronze%20stone%20armor%20growing%20from%20his%20arms%20and%20chest%2C%20boulders%20and%20earth%20floating%20around%20him%2C%20powerful%20heroic%20pose%2C%20desert%20mountain%20backdrop%2C%20confident%20expression%2C%20no%20text?width=300&height=400&seed=3001&nologo=true&model=flux"
+        alt="Tariq the Ironwall" loading="lazy" />
+      <div class="char-info">
+        <h2 class="char-name">🪨 TARIQ THE IRONWALL 🪨</h2>
+        <p class="char-tagline">"The earth stands firm — and so do I!"</p>
+        <ul class="char-traits">
+          <li>🪨 <strong>Earth Control</strong> — Moves and shapes rock, stone, sand and metal</li>
+          <li>🛡 <strong>Iron Skin</strong> — Copper-bronze armor grows from his body on command</li>
+          <li>🌍 <strong>Tremor Sense</strong> — Feels vibrations through the ground for miles around</li>
+          <li>⛰ <strong>Terrain Shaper</strong> — Raises walls, bridges and barriers from the earth</li>
+          <li>💪 <strong>Immovable Will</strong> — When Tariq plants his feet, nothing on earth moves him</li>
+        </ul>
+        <p class="char-origin">Born in the mountain village of Jabal Al-Hadid — "Iron Mountain" — Tariq grew up hearing the old stories about the earth that listens. At fourteen, when a mining collapse buried his father's crew, Tariq pressed both hands to the ground and held up thirty metres of collapsing rock tunnel for twenty-seven minutes until everyone was out. He didn't know he was doing anything special. The mountain did.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="origin-banner" id="originBanner" style="display:none">
+    <div class="origin-banner-inner">
+      <span class="origin-icon">📖</span>
+      <div><strong>ORIGIN STORY IN PROGRESS</strong> <span id="originProgress">Follow Tariq from the very beginning — the mountain is just waking up!</span></div>
+    </div>
+  </div>
+
+  <main>
+    <div class="date-nav">
+      <button class="nav-btn" id="prevBtn" onclick="changeDay(-1)">◀ PREV</button>
+      <div class="date-display">
+        <div class="episode-label">EPISODE</div>
+        <div class="episode-num" id="episodeNum">—</div>
+        <div class="date-label" id="dateLabel">Loading…</div>
+      </div>
+      <button class="nav-btn" id="nextBtn" onclick="changeDay(1)">NEXT ▶</button>
+    </div>
+    <div class="origin-tag" id="originTag" style="display:none">📖 ORIGIN STORY</div>
+    <div class="comic-title-wrap">
+      <h2 class="comic-title" id="comicTitle">Loading today's chapter…</h2>
+      <p class="comic-setting" id="comicSetting"></p>
+      <p class="comic-story" id="comicStory"></p>
+    </div>
+    <div class="panels-grid" id="panelsGrid"></div>
+    <div class="sharing-bar">
+      <span>Share today's comic:</span>
+      <button onclick="copyLink()" class="share-btn">🔗 Copy Link</button>
+      <button onclick="shareTwitter()" class="share-btn">🐦 Twitter</button>
+      <a href="index.html" class="share-btn universe-link">🌌 Universe</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>TARIQ THE IRONWALL — Part of the <a href="index.html"><strong>Sunhaven Universe</strong></a> &nbsp;|&nbsp; Powered by <a href="https://pollinations.ai" target="_blank">Pollinations AI</a> &nbsp;|&nbsp; Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
+    <p style="margin-top:6px;opacity:.6;font-size:.8rem">A new chapter every day. Zero cost. All heart. 🪨</p>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="tariq-script.js"></script>
+</body>
+</html>

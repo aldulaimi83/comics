@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZARA THE SUNBEAM — Daily Comics</title>
+  <title>SUNHAVEN UNIVERSE — Free Daily Comics</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="universe.css" />
 </head>
 <body>
 
@@ -14,73 +14,193 @@
   <header>
     <div class="header-inner">
       <div class="logo-wrap">
-        <div class="sun-icon">☀</div>
         <div>
-          <h1 class="site-title">ZARA THE SUNBEAM</h1>
-          <p class="site-sub">A New Adventure Every Day — 100% Free, 100% Fun</p>
+          <div class="universe-badge">SUNHAVEN UNIVERSE</div>
+          <div class="universe-sub">Free Daily Comics — A New Story Every Day</div>
         </div>
       </div>
-      <button class="char-btn" onclick="toggleCharCard()">Meet Zara ✦</button>
-        <a href="kael.html" class="kael-link-btn">💨 Meet Kael</a>
     </div>
   </header>
 
-  <!-- CHARACTER CARD -->
-  <div class="char-card" id="charCard">
-    <div class="char-card-inner">
-      <img class="char-portrait" src="https://image.pollinations.ai/prompt/anime%20illustration%2C%20young%20girl%20superhero%2C%20long%20glowing%20golden%20hair%20with%20tiny%20stars%2C%20bright%20purple%20and%20gold%20costume%20with%20sun%20emblem%20on%20chest%2C%20warm%20golden%20aura%2C%20friendly%20big%20smile%2C%20arms%20wide%20open%2C%20sky%20background%2C%20vibrant%20comic%20book%20style%2C%20no%20text?width=300&height=400&seed=777&nologo=true&model=flux" alt="Zara the Sunbeam" loading="lazy" />
-      <div class="char-info">
-        <h2 class="char-name">⚡ ZARA THE SUNBEAM ⚡</h2>
-        <p class="char-tagline">"When the sun shines, hope returns!"</p>
-        <ul class="char-traits">
-          <li>🌟 <strong>Kind-hearted</strong> — She sees good in everyone</li>
-          <li>💛 <strong>Warmth Healer</strong> — Her golden light heals wounds and sadness</li>
-          <li>🌈 <strong>Force Shield</strong> — Creates bubbles of sunlight to protect others</li>
-          <li>☀ <strong>Solar Flight</strong> — Flies by riding beams of sunlight</li>
-          <li>🦁 <strong>Never Gives Up</strong> — No problem is too big when you believe</li>
-        </ul>
-        <p class="char-origin">Born during a rare golden eclipse, Zara absorbed the sun's purest energy. Now she travels the world, one adventure at a time, spreading light wherever darkness dares to appear.</p>
+  <!-- HERO BANNER -->
+  <div class="hero-banner">
+    <div class="banner-eyebrow">Where every hero has a story</div>
+    <h1 class="banner-title">SUNHAVEN<br><span>UNIVERSE</span></h1>
+    <p class="banner-desc">Six heroes. One world. Each with their own daily comics — origin stories, epic adventures, and new chapters every single day. All free, forever.</p>
+    <div class="hero-count-bar">
+      <div class="hero-count-item">
+        <span class="hero-count-num">6</span>
+        <span class="hero-count-label">Heroes</span>
+      </div>
+      <div class="hero-count-item">
+        <span class="hero-count-num">∞</span>
+        <span class="hero-count-label">Stories</span>
+      </div>
+      <div class="hero-count-item">
+        <span class="hero-count-num">2</span>
+        <span class="hero-count-label">Languages</span>
+      </div>
+      <div class="hero-count-item">
+        <span class="hero-count-num">Free</span>
+        <span class="hero-count-label">Always</span>
       </div>
     </div>
   </div>
 
-  <!-- MAIN COMIC AREA -->
-  <main>
-    <div class="date-nav">
-      <button class="nav-btn" id="prevBtn" onclick="changeDay(-1)">◀ PREV</button>
-      <div class="date-display">
-        <div class="episode-label">EPISODE</div>
-        <div class="episode-num" id="episodeNum">—</div>
-        <div class="date-label" id="dateLabel">Loading…</div>
+  <!-- LORE BANNER -->
+  <div class="lore-banner">
+    <div class="lore-banner-inner">
+      <div class="lore-icon">🌍</div>
+      <div>
+        <div class="lore-title">THE SUNHAVEN UNIVERSE</div>
+        <p class="lore-text">In a world not so different from ours, extraordinary people rise from ordinary moments — a golden eclipse, a hurricane at birth, a lightning strike, a cave-in, a moonless night, a desert dawn. These are the heroes of the Sunhaven Universe. They don't wear masks to hide who they are. They wear them to show you who they've become. Pick a hero. Read their story. Come back tomorrow for the next chapter.</p>
       </div>
-      <button class="nav-btn" id="nextBtn" onclick="changeDay(1)">NEXT ▶</button>
     </div>
+  </div>
 
-    <div class="comic-title-wrap">
-      <h2 class="comic-title" id="comicTitle">Loading today's adventure…</h2>
-      <p class="comic-setting" id="comicSetting"></p>
-    </div>
+  <!-- ENGLISH HEROES -->
+  <div class="section-wrap">
+    <h2 class="section-heading">⚡ THE HEROES</h2>
+    <div class="heroes-grid">
 
-    <div class="panels-grid" id="panelsGrid">
-      <!-- panels injected by JS -->
-    </div>
+      <!-- ZARA THE SUNBEAM -->
+      <a href="zara.html" class="hero-card" style="--card-accent:#FFD600; --card-shadow:rgba(255,214,0,.3);">
+        <img class="hero-card-portrait"
+          src="https://image.pollinations.ai/prompt/anime%20comic%20book%20art%2C%20young%20girl%20superhero%20named%20Zara%2C%20long%20glowing%20golden%20hair%2C%20purple%20and%20gold%20costume%2C%20sun%20emblem%2C%20warm%20golden%20aura%2C%20big%20smile%2C%20flying%20in%20bright%20sky%2C%20vibrant%20colors%2C%20no%20text?width=400&height=300&seed=7001&nologo=true&model=flux"
+          alt="Zara the Sunbeam" loading="lazy" />
+        <div class="hero-card-body">
+          <span class="hero-card-badge">Solar Hero</span>
+          <h3 class="hero-card-name">ZARA THE SUNBEAM</h3>
+          <p class="hero-card-tagline">"When the sun shines, hope returns!"</p>
+          <ul class="hero-card-powers">
+            <li>☀ Solar Flight — Rides beams of sunlight</li>
+            <li>💛 Warmth Healer — Golden light heals wounds</li>
+            <li>🌈 Force Shield — Bubbles of pure sunlight</li>
+            <li>⚡ Solar Blast — Concentrated light energy</li>
+          </ul>
+          <div class="hero-card-btn">READ ZARA'S COMICS ☀</div>
+        </div>
+      </a>
 
-    <div class="sharing-bar">
-      <span>Share today's comic:</span>
-      <button onclick="copyLink()" class="share-btn">🔗 Copy Link</button>
-      <button onclick="shareTwitter()" class="share-btn">🐦 Twitter</button>
-      <a href="kael.html" class="share-btn kael-universe-btn">💨 Also read Kael!</a>
+      <!-- KAEL THE WINDRUNNER -->
+      <a href="kael.html" class="hero-card" style="--card-accent:#38BDF8; --card-shadow:rgba(56,189,248,.3);">
+        <img class="hero-card-portrait"
+          src="https://image.pollinations.ai/prompt/anime%20comic%20book%20art%2C%20young%20boy%20superhero%20named%20Kael%2C%20wild%20windswept%20dark%20curly%20hair%2C%20sky%20blue%20hoodie%2C%20silver%20wind%20emblem%2C%20silver%20glowing%20eyes%2C%20wind%20swirling%20around%20him%2C%20playful%20grin%2C%20no%20text?width=400&height=300&seed=8001&nologo=true&model=flux"
+          alt="Kael the Windrunner" loading="lazy" />
+        <div class="hero-card-body">
+          <span class="hero-card-badge" style="background:#38BDF8;">Wind Hero</span>
+          <h3 class="hero-card-name">KAEL THE WINDRUNNER</h3>
+          <p class="hero-card-tagline" style="color:#38BDF8;">"Where the wind goes, so does hope!"</p>
+          <ul class="hero-card-powers">
+            <li>🌀 Wind Mastery — Controls air currents</li>
+            <li>⚡ Storm Riding — Flies on wind streams</li>
+            <li>🛡 Air Shield — Walls of compressed air</li>
+            <li>🌧 Rain Caller — Guides clouds to dry lands</li>
+          </ul>
+          <div class="hero-card-btn" style="background:#38BDF8;">READ KAEL'S COMICS 💨</div>
+        </div>
+        <span class="hero-card-new-badge">ORIGIN</span>
+      </a>
+
+      <!-- RIMA THE STORMCALLER -->
+      <a href="rima.html" class="hero-card" style="--card-accent:#EF4444; --card-shadow:rgba(239,68,68,.3);">
+        <img class="hero-card-portrait"
+          src="https://image.pollinations.ai/prompt/anime%20comic%20book%20art%2C%20teenage%20girl%20superhero%20named%20Rima%2C%20long%20black%20hair%20with%20red%20and%20gold%20lightning%20streaks%2C%20crimson%20cape%20with%20gold%20trim%2C%20electric%20storm%20power%20crackling%20around%20her%2C%20dramatic%20lightning%20backdrop%2C%20fierce%20determined%20eyes%2C%20no%20text?width=400&height=300&seed=9001&nologo=true&model=flux"
+          alt="Rima the Stormcaller" loading="lazy" />
+        <div class="hero-card-body">
+          <span class="hero-card-badge" style="background:#EF4444; color:#fff;">Storm Hero</span>
+          <h3 class="hero-card-name">RIMA THE STORMCALLER</h3>
+          <p class="hero-card-tagline" style="color:#EF4444;">"Every storm has a purpose — I am its!"</p>
+          <ul class="hero-card-powers">
+            <li>⚡ Lightning Control — Summons and shapes bolts</li>
+            <li>🌩 Storm Sight — Feels weather miles away</li>
+            <li>🔴 Thunder Shield — Wall of electric force</li>
+            <li>🌪 Cyclone Dash — Rides tornados at speed</li>
+          </ul>
+          <div class="hero-card-btn" style="background:#EF4444; color:#fff;">READ RIMA'S COMICS ⚡</div>
+        </div>
+        <span class="hero-card-new-badge">NEW</span>
+      </a>
+
+      <!-- TARIQ THE IRONWALL -->
+      <a href="tariq.html" class="hero-card" style="--card-accent:#D97706; --card-shadow:rgba(217,119,6,.3);">
+        <img class="hero-card-portrait"
+          src="https://image.pollinations.ai/prompt/anime%20comic%20book%20art%2C%20muscular%20teenage%20boy%20superhero%20named%20Tariq%2C%20brown%20skin%2C%20copper%20bronze%20armored%20gauntlets%20growing%20from%20his%20arms%2C%20earth%20and%20stone%20floating%20around%20him%2C%20powerful%20heroic%20stance%2C%20desert%20mountain%20backdrop%2C%20no%20text?width=400&height=300&seed=9101&nologo=true&model=flux"
+          alt="Tariq the Ironwall" loading="lazy" />
+        <div class="hero-card-body">
+          <span class="hero-card-badge" style="background:#D97706;">Earth Hero</span>
+          <h3 class="hero-card-name">TARIQ THE IRONWALL</h3>
+          <p class="hero-card-tagline" style="color:#D97706;">"The earth stands firm — and so do I!"</p>
+          <ul class="hero-card-powers">
+            <li>🪨 Earth Control — Moves rock and stone</li>
+            <li>🛡 Iron Skin — Copper armor grows from body</li>
+            <li>🌍 Tremor Sense — Feels vibrations underground</li>
+            <li>⛰ Terrain Shaper — Raises walls from the ground</li>
+          </ul>
+          <div class="hero-card-btn" style="background:#D97706;">READ TARIQ'S COMICS 🪨</div>
+        </div>
+        <span class="hero-card-new-badge">NEW</span>
+      </a>
+
+      <!-- LUNA THE NIGHTWEAVER -->
+      <a href="luna.html" class="hero-card" style="--card-accent:#A78BFA; --card-shadow:rgba(167,139,250,.3);">
+        <img class="hero-card-portrait"
+          src="https://image.pollinations.ai/prompt/anime%20comic%20book%20art%2C%20mysterious%20teenage%20girl%20superhero%20named%20Luna%2C%20silver%20white%20hair%2C%20pale%20glowing%20eyes%2C%20dark%20midnight%20cloak%20that%20becomes%20starry%20sky%2C%20moonlight%20and%20silver%20shadows%20swirling%20around%20her%2C%20rooftop%20at%20night%2C%20ethereal%20glow%2C%20no%20text?width=400&height=300&seed=9201&nologo=true&model=flux"
+          alt="Luna the Nightweaver" loading="lazy" />
+        <div class="hero-card-body">
+          <span class="hero-card-badge" style="background:#A78BFA; color:#000;">Moon Hero</span>
+          <h3 class="hero-card-name">LUNA THE NIGHTWEAVER</h3>
+          <p class="hero-card-tagline" style="color:#A78BFA;">"Darkness is not the enemy — it's where stars are born."</p>
+          <ul class="hero-card-powers">
+            <li>🌙 Moonbeam Control — Shapes silver light</li>
+            <li>🌑 Shadow Step — Travels through shadows</li>
+            <li>✨ Illusion Weave — Creates vivid illusions</li>
+            <li>💫 Starlight Heal — Silver light mends wounds</li>
+          </ul>
+          <div class="hero-card-btn" style="background:#A78BFA; color:#000;">READ LUNA'S COMICS 🌙</div>
+        </div>
+        <span class="hero-card-new-badge">NEW</span>
+      </a>
+
     </div>
-  </main>
+  </div>
+
+  <!-- ARABIC SECTION -->
+  <div class="arabic-divider">
+    <div class="arabic-divider-inner">
+      <h2 class="arabic-section-title">🌙 الأبطال العرب — ARABIC HEROES 🌙</h2>
+      <p class="arabic-section-subtitle">Full Arabic comics — قصص كاملة باللغة العربية — new chapter every day</p>
+      <div class="arabic-heroes-grid">
+
+        <!-- NOUR -->
+        <a href="nour.html" class="hero-card arabic" style="text-align:right;">
+          <img class="hero-card-portrait"
+            src="https://image.pollinations.ai/prompt/anime%20comic%20book%20art%2C%20beautiful%20young%20Arab%20girl%20superhero%20named%20Nour%2C%20hijab%20in%20gold%20and%20teal%20colors%2C%20dawn%20light%20radiating%20from%20her%20hands%2C%20sunrise%20sky%20backdrop%2C%20golden%20teal%20costume%2C%20hopeful%20warm%20expression%2C%20no%20text?width=400&height=300&seed=9301&nologo=true&model=flux"
+            alt="نور الفجر" loading="lazy" />
+          <div class="hero-card-body" dir="rtl">
+            <span class="hero-card-badge" style="background:#2DD4BF; color:#000;">بطلة الفجر</span>
+            <h3 class="hero-card-name" style="color:#2DD4BF;">نور الفجر</h3>
+            <p class="hero-card-tagline" style="color:#2DD4BF; font-style:italic;">"النور يبدأ من قلب واحد شجاع"</p>
+            <ul class="hero-card-powers">
+              <li>🌅 نور الفجر — تستدعي أولى خيوط الضوء</li>
+              <li>💫 الشفاء الذهبي — تشفي الجروح بالنور</li>
+              <li>🛡 درع الضياء — حاجز من الطاقة النورانية</li>
+              <li>✨ بصيرة النور — ترى في الظلام الدامس</li>
+            </ul>
+            <div class="hero-card-btn" style="background:#2DD4BF; color:#000;">اقرأ قصة نور 🌅</div>
+          </div>
+          <span class="hero-card-new-badge">جديد</span>
+        </a>
+
+      </div>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer>
-    <p>ZARA THE SUNBEAM — Daily Comics &nbsp;|&nbsp; Powered by <a href="https://pollinations.ai" target="_blank">Pollinations AI</a> (free) &nbsp;|&nbsp; Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a> (free)</p>
-    <p style="margin-top:6px;opacity:.6;font-size:.8rem">New comic every day. Zero cost. All heart. ☀</p>
+    <p>SUNHAVEN UNIVERSE — Free Daily Comics &nbsp;|&nbsp; Powered by <a href="https://pollinations.ai" target="_blank">Pollinations AI</a> &nbsp;|&nbsp; Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
+    <p style="margin-top:6px;opacity:.5;font-size:.78rem">New comics every day. Six heroes. Zero cost. All heart. ⚡☀💨🌙🪨⚡</p>
   </footer>
 
-  <div class="toast" id="toast"></div>
-
-  <script src="script.js"></script>
 </body>
 </html>

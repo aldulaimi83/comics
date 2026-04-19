@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RIMA THE STORMCALLER — Daily Comics</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="rima-style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <div class="storm-icon">⚡</div>
+        <div>
+          <h1 class="site-title">RIMA THE STORMCALLER</h1>
+          <p class="site-sub">Every Storm Has a Purpose — A New Chapter Every Day</p>
+        </div>
+      </div>
+      <div class="header-btns">
+        <a href="index.html" class="universe-btn">🌌 Universe</a>
+        <button class="char-btn" onclick="toggleCharCard()">Meet Rima ✦</button>
+        <a href="zara.html" class="universe-btn" style="background:#FFD600;">☀ Zara</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CHARACTER CARD -->
+  <div class="char-card" id="charCard">
+    <div class="char-card-inner">
+      <img class="char-portrait"
+        src="https://image.pollinations.ai/prompt/anime%20illustration%2C%20teenage%20girl%20superhero%20named%20Rima%2C%20long%20black%20hair%20with%20electric%20red%20and%20gold%20lightning%20streaks%2C%20crimson%20cape%20with%20gold%20trim%2C%20storm%20clouds%20and%20lightning%20swirling%20around%20her%2C%20fierce%20determined%20eyes%2C%20powerful%20heroic%20pose%2C%20vibrant%20comic%20style%2C%20no%20text?width=300&height=400&seed=2001&nologo=true&model=flux"
+        alt="Rima the Stormcaller" loading="lazy" />
+      <div class="char-info">
+        <h2 class="char-name">⚡ RIMA THE STORMCALLER ⚡</h2>
+        <p class="char-tagline">"Every storm has a purpose — I am its!"</p>
+        <ul class="char-traits">
+          <li>⚡ <strong>Lightning Control</strong> — Summons, shapes, and hurls bolts of electricity</li>
+          <li>🌩 <strong>Storm Sight</strong> — Senses weather changes from hundreds of miles away</li>
+          <li>🔴 <strong>Thunder Shield</strong> — A crackling wall of electrical force</li>
+          <li>🌪 <strong>Cyclone Dash</strong> — Rides tornadoes and storm winds at terrifying speed</li>
+          <li>💪 <strong>Unbreakable Will</strong> — The worse the storm, the stronger she becomes</li>
+        </ul>
+        <p class="char-origin">Born during the most powerful electrical storm in the history of Al-Rashid City, baby Rima reached up and caught a lightning bolt with her bare hand — and smiled. Nobody saw it. Twelve years later, in the middle of a thunderstorm that knocked out the whole city's power, Rima finally learns what she truly is. The storm didn't just happen around her. The storm IS her.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORIGIN BANNER -->
+  <div class="origin-banner" id="originBanner" style="display:none">
+    <div class="origin-banner-inner">
+      <span class="origin-icon">📖</span>
+      <div>
+        <strong>ORIGIN STORY IN PROGRESS</strong>
+        <span id="originProgress">Follow Rima from the very beginning — her storm is just starting!</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN COMIC AREA -->
+  <main>
+    <div class="date-nav">
+      <button class="nav-btn" id="prevBtn" onclick="changeDay(-1)">◀ PREV</button>
+      <div class="date-display">
+        <div class="episode-label">EPISODE</div>
+        <div class="episode-num" id="episodeNum">—</div>
+        <div class="date-label" id="dateLabel">Loading…</div>
+      </div>
+      <button class="nav-btn" id="nextBtn" onclick="changeDay(1)">NEXT ▶</button>
+    </div>
+
+    <div class="origin-tag" id="originTag" style="display:none">📖 ORIGIN STORY</div>
+
+    <div class="comic-title-wrap">
+      <h2 class="comic-title" id="comicTitle">Loading today's chapter…</h2>
+      <p class="comic-setting" id="comicSetting"></p>
+      <p class="comic-story" id="comicStory"></p>
+    </div>
+
+    <div class="panels-grid" id="panelsGrid"></div>
+
+    <div class="sharing-bar">
+      <span>Share today's comic:</span>
+      <button onclick="copyLink()" class="share-btn">🔗 Copy Link</button>
+      <button onclick="shareTwitter()" class="share-btn">🐦 Twitter</button>
+      <a href="index.html" class="share-btn universe-link">🌌 Universe</a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>RIMA THE STORMCALLER — Part of the <a href="index.html"><strong>Sunhaven Universe</strong></a> &nbsp;|&nbsp; Powered by <a href="https://pollinations.ai" target="_blank">Pollinations AI</a> &nbsp;|&nbsp; Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
+    <p style="margin-top:6px;opacity:.6;font-size:.8rem">A new storm every day. Zero cost. All heart. ⚡</p>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="rima-script.js"></script>
+</body>
+</html>
